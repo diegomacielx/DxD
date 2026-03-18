@@ -3,15 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DxD Consultoria Esportiva | Método 16S - A Revolução</title>
+    <title>DxD Consultoria Esportiva | Elite Performance & Fit</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Importação da Inter (corpo) e Orbitron (fallback visual para a Squartiqa) */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Orbitron:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&display=swap');
         
-        /* CONFIGURAÇÃO TÉCNICA DA FONTE SQUARTIQA 
-           Certifique-se de que o arquivo 'Squartiqa4F.ttf' esteja na mesma pasta que este HTML.
-        */
+        /* FONTE SQUARTIQA - CARREGAMENTO LOCAL */
         @font-face {
             font-family: 'SquartiqaCustom';
             src: url('Squartiqa4F.ttf') format('truetype');
@@ -21,323 +18,381 @@
         }
 
         :root {
-            --color-bg: #1e1e1e;
-            --color-logo: #e2e8ce;
-            --color-accent: #10b981;
-            --color-accent-hover: #059669;
+            /* ==========================================================
+               CORES ESTRUTURAIS: TARGET 1 (VERDE ESCURO + DOURADO)
+               ========================================================== */
+            --color-base: #0B2524;         
+            --color-matte: #123C3A;        
+            --color-section: #0F302E;      
+            --color-card: #164845;         
+            
+            --color-gold: #D4A373;         
+            --color-gold-bright: #EAC096;  
+            --color-silver: #E6C7A3;       
+            --color-beige: #F5E3CD;        
+
+            /* Variável RGB para controle de opacidade em sombras e glows */
+            --rgb-accent: 212, 163, 115;   
+
+            /* ==========================================================
+               CORES ABSOLUTAS E SEMÂNTICAS (Injeção Solicitada)
+               ========================================================== */
+            --color-pure-black: #000000;   /* Ancoragem de Contraste Profundo */
+            --color-pure-white: #ffffff;   /* Legibilidade Máxima (WCAG) */
+            --color-neutral-dark: #111111; /* Para outlines/borders isolados e opacos */
+            --color-urgency: #dc2626;      /* Gatilho Mental: Escassez, Alertas, Ofertas */
+        }
+
+        /* TEMA ALTERNATIVO (Oculto no CSS para referência futura) */
+        .theme-brown {
+            --color-base: #1A120E; --color-matte: #2B1E17; --color-section: #221711; --color-card: #3A2920; 
+            --color-gold: #9FB3C8; --color-gold-bright: #B9CCE0; --color-silver: #C7D0D9; --color-beige: #E2EAF2;
+            --rgb-accent: 159, 179, 200;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--color-bg);
+            background-color: var(--color-base);
+            color: var(--color-pure-white);
             scroll-behavior: smooth;
         }
 
         .font-squartiqa {
             font-family: 'SquartiqaCustom', 'Orbitron', sans-serif;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.3em;
             text-transform: uppercase;
         }
 
-        .glass-card {
-            background: rgba(226, 232, 206, 0.03);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(226, 232, 206, 0.08);
-            transition: all 0.3s ease;
-        }
-
-        .premium-border {
-            border: 2px solid var(--color-accent);
-            box-shadow: 0 0 25px rgba(16, 185, 129, 0.15);
-        }
-
-        .text-gradient {
-            background: linear-gradient(to right, #e2e8ce, #10b981);
+        .gradient-red-sensual {
+            background: linear-gradient(135deg, var(--color-beige) 0%, var(--color-gold) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            font-style: italic;
+            font-weight: 900;
         }
 
-        .scarcity-badge {
-            animation: pulse 2s infinite;
+        .gradient-fusion-sober {
+            background: linear-gradient(to right, var(--color-gold-bright) 0%, var(--color-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.8; }
-            100% { transform: scale(1); opacity: 1; }
+        .glass-card {
+            background: var(--color-card);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card:hover {
+            border-color: var(--color-gold);
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px -15px var(--color-pure-black); /* Uso do preto absoluto para sombra profunda */
+        }
+
+        /* Classe utilitária usando o Cinza 111 */
+        .border-neutral-hard {
+            border-color: var(--color-neutral-dark);
+        }
+
+        .premium-tag {
+            background: linear-gradient(to right, rgba(var(--rgb-accent), 0.1), transparent);
+            color: var(--color-gold-bright);
+            border: 1px solid rgba(var(--rgb-accent), 0.3);
+            letter-spacing: 0.5em;
+            text-shadow: 0 0 15px rgba(var(--rgb-accent), 0.3);
+        }
+
+        /* Badge Semântico de Urgência (Usando o Vermelho #dc2626) */
+        .urgency-badge {
+            background-color: rgba(220, 38, 38, 0.1); /* 10% de opacidade do #dc2626 */
+            color: var(--color-urgency);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            animation: pulse-urgency 2s infinite;
+        }
+
+        @keyframes pulse-urgency {
+            0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
+            70% { box-shadow: 0 0 0 6px rgba(220, 38, 38, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+        }
+
+        .price-elite-heat {
+            background: linear-gradient(135deg, var(--color-beige) 0%, var(--color-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(var(--rgb-accent), 0.4));
+            animation: heat-pulse 2s infinite alternate;
+        }
+
+        @keyframes heat-pulse {
+            from { transform: scale(1); opacity: 0.9; }
+            to { transform: scale(1.03); opacity: 1; filter: drop-shadow(0 0 25px rgba(var(--rgb-accent), 0.7)); }
+        }
+
+        .btn-gold {
+            background-color: var(--color-gold);
+            color: var(--color-pure-black); /* Contraste máximo usando Preto Absoluto */
+            font-weight: 900;
+            transition: all 0.4s ease;
+        }
+
+        .btn-gold:hover {
+            background-color: var(--color-gold-bright);
+            box-shadow: 0 0 40px rgba(var(--rgb-accent), 0.4);
+            transform: scale(1.02);
         }
 
         .animate-marquee {
             display: inline-block;
-            animation: marquee 25s linear infinite;
+            animation: marquee 50s linear infinite;
         }
-
         @keyframes marquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
 
-        /* Nitidez Absoluta para o SVG */
         .logo-main {
-            width: auto;
             max-width: 320px;
-            height: auto;
-            image-rendering: -webkit-optimize-contrast;
+            filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.5));
         }
-        
+
         @media (max-width: 640px) {
-            .logo-main {
-                max-width: 220px;
-            }
-        }
-
-        /* Estilo da Secção FAQ */
-        details summary::-webkit-details-marker {
-            display: none;
-        }
-        
-        details[open] summary svg {
-            transform: rotate(180deg);
-        }
-
-        summary {
-            list-style: none;
+            .logo-main { max-width: 200px; }
         }
     </style>
 </head>
-<body class="text-gray-200">
+<body class="antialiased overflow-x-hidden bg-[var(--color-matte)]">
 
     <!-- Hero Section -->
-    <header class="relative pt-24 pb-24 px-4 overflow-hidden text-center border-b border-white/5">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-emerald-500/5 via-transparent to-transparent -z-10"></div>
+    <header class="relative pt-32 pb-40 px-4 text-center border-b border-neutral-hard" style="background: radial-gradient(circle at center, rgba(var(--rgb-accent), 0.08) 0%, transparent 70%);">
         
-        <div class="max-w-5xl mx-auto flex flex-col items-center">
+        <div class="max-w-6xl mx-auto flex flex-col items-center relative z-10">
             
-            <!-- Branding Centralizado -->
-            <div class="mb-14 flex flex-col items-center group">
-                <img src="TRANSPARENTE LOGO SVG.svg" alt="DxD Consultoria Esportiva" class="logo-main transition-transform duration-500 group-hover:scale-105 mb-4">
-                <span class="font-squartiqa text-[#e2e8ce] text-base sm:text-xl lg:text-2xl font-normal tracking-[0.25em] opacity-90">
+            <div class="mb-20 flex flex-col items-center group">
+                <img src="TRANSPARENTE LOGO SVG.svg" alt="DxD Elite Branding" class="logo-main transition-all duration-1000 group-hover:scale-105 mb-8">
+                <span class="font-squartiqa text-[var(--color-beige)] text-base sm:text-xl lg:text-2xl font-light opacity-60">
                     Consultoria Esportiva
                 </span>
             </div>
 
-            <span class="inline-block px-4 py-1 rounded-full bg-[#e2e8ce]/5 text-[#e2e8ce] text-[9px] sm:text-[11px] font-bold uppercase tracking-[0.2em] mb-8 border border-[#e2e8ce]/10">
+            <span class="inline-block px-10 py-3 rounded-full premium-tag text-[9px] font-black mb-12 uppercase">
                 Acompanhamento Premium Online
             </span>
             
-            <h1 class="text-3xl sm:text-5xl lg:text-7xl font-extrabold text-white mb-8 leading-tight tracking-tight max-w-4xl">
-                Você não precisa viver como atleta para ter <span class="text-gradient">resultados de um atleta.</span>
+            <h1 class="text-4xl sm:text-7xl lg:text-9xl font-black text-[var(--color-pure-white)] mb-12 leading-[1] tracking-tighter max-w-6xl">
+                Você não precisa viver como atleta para ter <span class="gradient-red-sensual">resultados de um atleta.</span>
             </h1>
             
-            <div class="text-lg sm:text-2xl text-gray-400 mb-12 max-w-4xl mx-auto leading-relaxed">
-                <p class="md:block">O problema não é falta de esforço. É falta de direcionamento.</p>
-                <p class="md:block">Unimos <span class="text-[#e2e8ce] font-semibold italic">Treino inteligente com Nutrição estratégica</span> para pessoas comuns.</p>
+            <div class="text-xl sm:text-3xl text-[var(--color-silver)] mb-20 max-w-5xl mx-auto leading-relaxed font-light">
+                <p class="md:block mb-2">O problema não é falta de esforço. É falta de direcionamento.</p>
+                <p class="md:block italic">Unimos <span class="gradient-fusion-sober">Treino inteligente com Nutrição estratégica</span> para pessoas comuns.</p>
             </div>
             
-            <div class="flex flex-col sm:flex-row gap-5 justify-center">
-                <a href="#planos" class="px-10 py-5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-black text-xl shadow-2xl shadow-emerald-500/20 transition-all transform hover:-translate-y-1 uppercase tracking-tighter">
+            <div class="flex flex-col sm:flex-row gap-8 justify-center items-center">
+                <a href="#planos" class="px-16 py-7 btn-gold rounded-2xl font-black text-2xl uppercase tracking-widest shadow-2xl">
                     Quero resultados
                 </a>
-                <a href="#metodologia" class="px-10 py-5 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-2xl font-bold text-xl transition-all">
+                <a href="#metodologia" class="px-12 py-7 bg-white/5 hover:bg-white/10 text-[var(--color-pure-white)] border border-white/5 rounded-2xl font-bold text-xl transition-all">
                     A Metodologia
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- Marquee de Escassez -->
-    <section class="bg-[#e2e8ce] py-3 overflow-hidden">
+    <!-- Marquee -->
+    <section class="bg-[var(--color-base)] py-4 overflow-hidden border-y border-neutral-hard">
         <div class="whitespace-nowrap flex animate-marquee">
-            <span class="text-[#1e1e1e] font-black uppercase text-xs mx-12 italic tracking-wider">Apenas 10 vagas abertas este mês •</span>
-            <span class="text-[#1e1e1e] font-black uppercase text-xs mx-12 italic tracking-wider">DxD Consultoria Esportiva •</span>
-            <span class="text-[#1e1e1e] font-black uppercase text-xs mx-12 italic tracking-wider">Método 16S: A Revolução •</span>
-            <span class="text-[#1e1e1e] font-black uppercase text-xs mx-12 italic tracking-wider">Apenas 10 vagas abertas este mês •</span>
+            <span class="text-[var(--color-gold)] font-light uppercase text-[10px] mx-16 tracking-[0.7em] opacity-40 italic">CIÊNCIA • PERFORMANCE • EXCLUSIVIDADE • APENAS 10 VAGAS/MÊS •</span>
+            <span class="text-[var(--color-gold)] font-light uppercase text-[10px] mx-16 tracking-[0.7em] opacity-40 italic">CIÊNCIA • PERFORMANCE • EXCLUSIVIDADE • APENAS 10 VAGAS/MÊS •</span>
         </div>
     </section>
 
-    <!-- Seção 01: Metodologia DxD (Agora vindo ANTES dos cards) -->
-    <section id="metodologia" class="py-32 px-4 bg-[#1a1a1a] border-b border-white/5">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div class="text-left">
-                <h2 class="font-squartiqa text-[#e2e8ce] text-2xl lg:text-4xl mb-8 leading-tight tracking-wider">
-                    A Metodologia DxD:<br>Ciência e Performance
+    <!-- Metodologia -->
+    <section id="metodologia" class="py-40 px-4 bg-[var(--color-section)] border-b border-neutral-hard">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center text-left">
+            <div>
+                <h2 class="font-squartiqa text-[var(--color-beige)] text-3xl lg:text-5xl mb-12 leading-tight">
+                    Metodologia DxD:<br><span class="text-[var(--color-gold)]">Engenharia de Elite</span>
                 </h2>
-                <div class="space-y-6 text-gray-400 text-lg leading-relaxed">
+                <div class="space-y-10 text-[var(--color-silver)] text-xl leading-relaxed font-light">
                     <p>
-                        Somos profissionais experientes, com trajetória pautada pela entrega de resultados reais. Nosso trabalho é inteiramente embasado no que há de <span class="text-white font-semibold">mais atualizado e robusto na literatura científica mundial</span>.
+                        Somos profissionais experientes, pautados pela entrega de resultados reais. Nosso trabalho é inteiramente embasado no que há de <span class="text-[var(--color-pure-white)] font-medium">mais atualizado e robusto na literatura científica mundial</span>.
                     </p>
                     <p>
-                        Não aplicamos protocolos de massa. Nossa abordagem integra a <span class="text-[#e2e8ce] italic">fisiologia do exercício</span> e a <span class="text-[#e2e8ce] italic">bioquímica nutricional</span> de forma personalizada. Cada detalhe do seu planejamento é calculado para otimizar sua resposta metabólica.
+                        Sua evolução não é aleatória. Integramos a <span class="text-[var(--color-gold)] italic">fisiologia do exercício</span> e a <span class="text-[var(--color-gold)] italic">bioquímica nutricional</span> de forma cirúrgica.
                     </p>
-                    <p class="text-white font-bold italic border-l-2 border-emerald-500 pl-4">
+                    <p class="text-[var(--color-beige)] font-semibold italic border-l-4 border-[var(--color-gold)] pl-8 py-2">
                         Onde outros oferecem uma planilha, nós entregamos um sistema de engenharia humana focado em resultados tangíveis.
                     </p>
                 </div>
             </div>
-            <!-- Elemento Visual de Metodologia -->
-            <div class="relative">
-                <div class="glass-card p-10 rounded-[3rem] premium-border">
-                    <div class="space-y-8">
-                        <div class="flex items-center gap-6">
-                            <div class="w-12 h-12 bg-emerald-500 text-black font-black rounded-full flex items-center justify-center">01</div>
-                            <div class="text-left">
-                                <h4 class="text-white font-bold uppercase tracking-widest text-sm">Análise de Dados</h4>
-                                <p class="text-gray-500 text-xs">Mapeamento metabólico e histórico atlético.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-6">
-                            <div class="w-12 h-12 bg-emerald-500 text-black font-black rounded-full flex items-center justify-center">02</div>
-                            <div class="text-left">
-                                <h4 class="text-white font-bold uppercase tracking-widest text-sm">Periodização Integrada</h4>
-                                <p class="text-gray-500 text-xs">Dieta e Treino falando a mesma língua.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-6">
-                            <div class="w-12 h-12 bg-emerald-500 text-black font-black rounded-full flex items-center justify-center">03</div>
-                            <div class="text-left">
-                                <h4 class="text-white font-bold uppercase tracking-widest text-sm">Ajuste Dinâmico</h4>
-                                <p class="text-gray-500 text-xs">Biofeedback semanal para quebra de platôs.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção 02: Diferenciais (Cards de Valor) -->
-    <section id="diferenciais" class="py-32 px-4 max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
-            <!-- Card WhatsApp Especialistas -->
-            <div class="glass-card p-8 rounded-3xl group text-left border-t-4 border-emerald-500 bg-emerald-950/5">
-                <div class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                    <svg class="w-8 h-8 text-emerald-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.631 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                    </svg>
+            <div class="glass-card p-12 rounded-[4rem] relative overflow-hidden shadow-2xl border-neutral-hard">
+                <div class="space-y-12">
+                    <div class="flex items-center gap-8 group">
+                        <div class="w-16 h-16 bg-white/5 text-[var(--color-gold)] font-black rounded-3xl flex items-center justify-center shrink-0 border border-white/5 group-hover:bg-[var(--color-gold)] group-hover:text-[var(--color-pure-black)] transition-all">01</div>
+                        <div>
+                            <h4 class="text-[var(--color-pure-white)] font-bold uppercase tracking-widest text-base">Análise de Dados</h4>
+                            <p class="text-[var(--color-silver)] opacity-80 text-sm">Mapeamento metabólico e histórico individual.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-8 group">
+                        <div class="w-16 h-16 bg-white/5 text-[var(--color-gold)] font-black rounded-3xl flex items-center justify-center shrink-0 border border-white/5 group-hover:bg-[var(--color-gold)] group-hover:text-[var(--color-pure-black)] transition-all">02</div>
+                        <div>
+                            <h4 class="text-[var(--color-pure-white)] font-bold uppercase tracking-widest text-base">Sinergia Integrada</h4>
+                            <p class="text-[var(--color-silver)] opacity-80 text-sm">Alinhamento entre dieta e estímulo físico.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-8 group">
+                        <div class="w-16 h-16 bg-white/5 text-[var(--color-gold)] font-black rounded-3xl flex items-center justify-center shrink-0 border border-white/5 group-hover:bg-[var(--color-gold)] group-hover:text-[var(--color-pure-black)] transition-all">03</div>
+                        <div>
+                            <h4 class="text-[var(--color-pure-white)] font-bold uppercase tracking-widest text-base">Ajuste de Precisão</h4>
+                            <p class="text-[var(--color-silver)] opacity-80 text-sm">Biofeedback semanal para quebra de platôs.</p>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-4 italic uppercase tracking-tighter">Contato direto com os Especialistas</h3>
-                <p class="text-gray-400 leading-relaxed text-sm">Suporte via WhatsApp diretamente conosco, <span class="text-white font-semibold">sem estagiários</span>. Suas dúvidas são respondidas por quem realmente entende e acompanha de perto seu caso.</p>
-            </div>
-
-            <!-- Card: Realidade -->
-            <div class="glass-card p-8 rounded-3xl group text-left border-t-4 border-emerald-500">
-                <div class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                    <svg class="w-8 h-8 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-4 italic uppercase tracking-tighter">Moldado à sua realidade</h3>
-                <p class="text-gray-400 leading-relaxed text-sm">A estratégia é feita pra funcionar na sua vida real — não no cenário perfeito do papel. Adaptamos o plano à sua rotina de viagens e horários complexos.</p>
-            </div>
-
-            <!-- Card: Evolução -->
-            <div class="glass-card p-8 rounded-3xl group text-left border-t-4 border-emerald-500">
-                <div class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                    <svg class="w-8 h-8 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-4 italic uppercase tracking-tighter">Evolução visível em semanas</h3>
-                <p class="text-gray-400 leading-relaxed text-sm">Transformações notáveis entre 6 a 8 semanas. O diferencial é o tempo e a consistência com que o resultado chega através do método certo.</p>
-            </div>
-
-            <!-- Card: Acompanhamento -->
-            <div class="glass-card p-8 rounded-3xl group text-left border-t-4 border-emerald-500">
-                <div class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                    <svg class="w-8 h-8 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-4 italic uppercase tracking-tighter">Acompanhamento semanal</h3>
-                <p class="text-gray-400 leading-relaxed text-sm">Você não é largado com um PDF. Toda semana analisamos sua evolução e resultados, ajustando o plano para manter o seu progresso constante.</p>
-            </div>
-
-            <!-- Card: Individualidade -->
-            <div class="glass-card p-8 rounded-3xl group text-left border-t-4 border-emerald-500">
-                <div class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                    <svg class="w-8 h-8 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-4 italic uppercase tracking-tighter">Treino ajustado ao seu nível</h3>
-                <p class="text-gray-400 leading-relaxed text-sm">Nada de treinos genéricos do Google. Você recebe um protocolo estruturado, progressivo e compatível com seu histórico e objetivos individuais.</p>
-            </div>
-
-            <!-- Card: Nutrição -->
-            <div class="glass-card p-8 rounded-3xl group text-left border-t-4 border-emerald-500">
-                <div class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                    <svg class="w-8 h-8 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04 Pelotas 12 21.232 8.618-3.04A11.955 11.955 0 0112 2.944a11.955 11.955 0 018.618 3.04z"></path></svg>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-4 italic uppercase tracking-tighter">Nutrição Estratégica</h3>
-                <p class="text-gray-400 leading-relaxed text-sm">Sem terrorismo nutricional. Ensinamos você a comer de forma inteligente para sustentar seu rendimento físico e estético sem sofrimento.</p>
             </div>
         </div>
     </section>
 
-    <!-- Seção de Planos -->
-    <section id="planos" class="py-32 px-4 bg-[#1a1a1a]">
+    <!-- Diferenciais -->
+    <section class="py-40 px-4 max-w-7xl mx-auto">
+        <div class="text-center mb-24">
+            <h2 class="font-squartiqa text-[var(--color-gold)] text-2xl lg:text-4xl tracking-[0.5em] opacity-40 uppercase">O Padrão DxD</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            
+            <div class="glass-card p-10 rounded-[3.5rem] text-left border-t-2 border-[var(--color-gold)]">
+                <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-10">
+                    <svg class="w-8 h-8 text-[var(--color-gold)]" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.631 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-[var(--color-pure-white)] mb-6 uppercase italic tracking-tighter">Contato Direto</h3>
+                <p class="text-[var(--color-silver)] leading-relaxed text-base font-light">Suporte via WhatsApp diretamente conosco, <span class="text-[var(--color-gold)] font-medium">sem estagiários</span>. Respostas de quem realmente entende e acompanha seu caso.</p>
+            </div>
+
+            <div class="glass-card p-10 rounded-[3.5rem] text-left border-t-2 border-white/10">
+                <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-10">
+                    <svg class="w-8 h-8 text-[var(--color-silver)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-[var(--color-pure-white)] mb-6 uppercase italic tracking-tighter">Moldado à realidade</h3>
+                <p class="text-[var(--color-silver)] leading-relaxed text-base font-light">A estratégia é feita pra funcionar na sua vida real. Adaptamos o plano à sua rotina de viagens e horários, sem cenários perfeitos de papel.</p>
+            </div>
+
+            <div class="glass-card p-10 rounded-[3.5rem] text-left border-t-2 border-[var(--color-gold)]">
+                <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-10">
+                    <svg class="w-8 h-8 text-[var(--color-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-[var(--color-pure-white)] mb-6 uppercase italic tracking-tighter">Evolução em semanas</h3>
+                <p class="text-[var(--color-silver)] leading-relaxed text-base font-light">Transformações notáveis em até 8 semanas. O diferencial é a consistência gerada por um método que se integra organicamente ao seu estilo de vida.</p>
+            </div>
+
+            <div class="glass-card p-10 rounded-[3.5rem] text-left border-t-2 border-white/10">
+                <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-10">
+                    <svg class="w-8 h-8 text-[var(--color-silver)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-[var(--color-pure-white)] mb-6 uppercase italic tracking-tighter">Suporte Semanal</h3>
+                <p class="text-[var(--color-silver)] leading-relaxed text-base font-light">Você não recebe um PDF e é ignorado. Analisamos seu biofeedback semanalmente, ajustando o plano para garantir progresso ininterrupto.</p>
+            </div>
+
+            <div class="glass-card p-10 rounded-[3.5rem] text-left border-t-2 border-[var(--color-gold)]">
+                <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-10">
+                    <svg class="w-8 h-8 text-[var(--color-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-[var(--color-pure-white)] mb-6 uppercase italic tracking-tighter">Nível Individual</h3>
+                <p class="text-[var(--color-silver)] leading-relaxed text-base font-light">Protocolo estruturado e compatível com seu histórico. Nada de treinos genéricos ou "receitas de bolo" copiadas da internet.</p>
+            </div>
+
+            <div class="glass-card p-10 rounded-[3.5rem] text-left border-t-2 border-white/10">
+                <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-10">
+                    <svg class="w-8 h-8 text-[var(--color-silver)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04 A12 12 0 003.382 12A11.955 11.955 0 0012 21.232 11.955 11.955 0 0020.618 12 11.955 11.955 0 0012 2.944z"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-[var(--color-pure-white)] mb-6 uppercase italic tracking-tighter">Nutrição Estratégica</h3>
+                <p class="text-[var(--color-silver)] leading-relaxed text-base font-light">Sem terrorismo nutricional. Ensinamos você a comer de forma inteligente para sustentar rendimento e estética sem sofrimento.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planos -->
+    <section id="planos" class="py-40 px-4 bg-[var(--color-section)] border-t border-neutral-hard">
         <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-4xl sm:text-6xl font-extrabold text-white mb-6 tracking-tight italic uppercase">Escolha seu Plano</h2>
-            <p class="text-xl text-gray-500 max-w-xl mx-auto mb-20">Vagas mensais limitadas para garantir o suporte direto dos especialistas.</p>
+            <h2 class="font-squartiqa text-[var(--color-pure-white)] text-3xl lg:text-7xl mb-12">Selecione seu Destino</h2>
+            <p class="text-xl text-[var(--color-silver)] max-w-2xl mx-auto mb-24 font-light italic">Acesso exclusivo à metodologia de alta performance DxD.</p>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-stretch">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-stretch">
                 <!-- Mensal -->
-                <div class="glass-card p-10 rounded-[2.5rem] flex flex-col border border-white/5 hover:border-[#e2e8ce]/20 transition-all text-left">
-                    <div class="mb-10">
-                        <h3 class="text-2xl font-bold text-white italic uppercase tracking-tighter">Mensal</h3>
-                        <p class="text-gray-500 text-sm font-medium">Protocolo inicial completo.</p>
+                <div class="glass-card p-12 rounded-[4rem] flex flex-col text-left">
+                    <div class="mb-12">
+                        <h3 class="text-2xl font-bold text-[var(--color-pure-white)] uppercase italic tracking-tighter mb-2">Mensal</h3>
+                        <p class="text-[var(--color-silver)] opacity-70 text-sm">Kickstart Individual</p>
                     </div>
-                    <div class="mb-10">
-                        <span class="text-5xl font-black text-white">R$ 499</span>
-                        <span class="text-gray-500 text-lg">/mês</span>
+                    <div class="mb-12">
+                        <span class="text-6xl font-black text-[var(--color-pure-white)]">R$ 499</span>
+                        <span class="text-[var(--color-silver)] text-lg">/mês</span>
                     </div>
-                    <ul class="space-y-5 mb-12 flex-grow">
-                        <li class="flex items-center gap-3 text-sm font-medium text-gray-300"><svg class="w-5 h-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg> Treino Personalizado</li>
-                        <li class="flex items-center gap-3 text-sm font-medium text-gray-300"><svg class="w-5 h-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg> Plano Alimentar Individual</li>
+                    <ul class="space-y-5 mb-14 flex-grow text-sm text-[var(--color-silver)] font-light">
+                        <li class="flex items-start gap-4">Prescrição de dieta individualizada no app;</li>
+                        <li class="flex items-start gap-4">Protocolo de treino individualizado em app premium;</li>
+                        <li class="flex items-start gap-4">Suporte via WhatsApp para dúvidas.</li>
                     </ul>
-                    <a href="https://linktr.ee/dxdconsultoria" target="_blank" class="w-full py-5 text-center rounded-2xl font-bold bg-white/5 hover:bg-white/10 border border-white/10 transition-all text-lg tracking-tight uppercase">
+                    <a href="https://linktr.ee/dxdconsultoria" target="_blank" class="w-full py-7 text-center rounded-3xl font-black bg-white/5 hover:bg-white/10 text-[var(--color-pure-white)] border border-neutral-hard transition-all text-xl uppercase tracking-widest">
                         Quero resultados
                     </a>
                 </div>
 
-                <!-- 16S - Mais Recomendado -->
-                <div class="glass-card p-10 rounded-[2.5rem] flex flex-col premium-border relative scale-105 bg-[#e2e8ce]/5 text-left">
-                    <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-emerald-500 text-black px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest">
-                        A Revolução
+                <!-- 16S - GOLDEN OFFER HEAT -->
+                <div class="glass-card p-12 rounded-[5rem] border-2 border-[var(--color-gold)] relative scale-105 text-left" style="background: linear-gradient(to bottom, rgba(var(--rgb-accent), 0.08), transparent);">
+                    <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-[var(--color-gold)] text-[var(--color-pure-black)] px-12 py-3 rounded-full text-[11px] font-black uppercase tracking-[0.5em] shadow-xl">
+                        MÉTODO 16S: O PADRÃO DE OURO
                     </div>
-                    <div class="mb-10">
-                        <h3 class="text-3xl font-black text-white italic uppercase tracking-tighter">Programa 16S</h3>
-                        <p class="text-emerald-400 text-sm font-bold uppercase tracking-widest mt-1">Mais Recomendado</p>
+                    
+                    <!-- AQUI ENTRA O VERMELHO DE URGÊNCIA (#dc2626) -->
+                    <div class="absolute top-10 right-8 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest urgency-badge">
+                        🔥 Restam 2 vagas
                     </div>
-                    <div class="mb-10 text-left">
-                        <p class="text-gray-500 line-through text-sm font-medium">De R$ 1.996,00</p>
-                        <div class="flex items-baseline gap-2">
-                            <span class="text-2xl font-bold text-[#e2e8ce]">4x</span>
-                            <span class="text-6xl font-black text-white tracking-tighter">R$ 397</span>
+
+                    <div class="mb-12 mt-4">
+                        <h3 class="text-4xl font-black text-[var(--color-pure-white)] uppercase italic tracking-tighter">Programa 16S</h3>
+                        <p class="text-[var(--color-gold)] text-sm font-bold uppercase tracking-widest mt-2">Acompanhamento Premium (4 Meses)</p>
+                    </div>
+                    <div class="mb-12">
+                        <p class="text-[var(--color-silver)] opacity-50 line-through text-xs font-medium uppercase mb-1">De R$ 1.996,00</p>
+                        <div class="flex items-baseline gap-4">
+                            <span class="text-3xl font-bold text-[var(--color-silver)]">4x</span>
+                            <span class="text-8xl font-black price-elite-heat tracking-tighter">R$ 397</span>
                         </div>
-                        <p class="text-emerald-500 text-[10px] font-bold mt-3 uppercase tracking-[0.15em]">Economia de R$ 408,00</p>
+                        <p class="text-[var(--color-gold)] text-[11px] font-bold mt-4 uppercase tracking-[0.3em]">A escolha de quem não aceita menos que o topo</p>
                     </div>
-                    <ul class="space-y-5 mb-12 flex-grow text-sm">
-                        <li class="flex items-center gap-3 font-semibold text-white"><svg class="w-6 h-6 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg> Método Integrado DxD</li>
-                        <li class="flex items-center gap-3 text-gray-300"><svg class="w-5 h-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg> Suporte Prioritário Direto</li>
-                        <li class="flex items-center gap-3 font-bold text-white"><svg class="w-6 h-6 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg> 16 Semanas de Resultados</li>
+                    <ul class="space-y-4 mb-14 flex-grow text-xs leading-relaxed text-[var(--color-beige)]">
+                        <li class="flex items-start gap-4"><span class="text-[var(--color-gold)]">✔</span> Dieta e Treino individualizados em app premium;</li>
+                        <li class="flex items-start gap-4"><span class="text-[var(--color-gold)]">✔</span> Suporte diário prioritário diretamente conosco;</li>
+                        <li class="flex items-start gap-4 font-bold text-[var(--color-pure-white)]"><span class="text-[var(--color-gold)]">✔</span> Feedbacks semanais e materiais exclusivos;</li>
+                        <li class="flex items-start gap-4"><span class="text-[var(--color-gold)]">✔</span> Correção diária de execuções via vídeo no app.</li>
                     </ul>
-                    <a href="https://linktr.ee/dxdconsultoria" target="_blank" class="w-full py-5 text-center rounded-2xl font-black bg-emerald-600 hover:bg-emerald-700 text-white shadow-2xl shadow-emerald-500/20 transition-all text-xl uppercase tracking-tighter">
-                        Quero resultados
+                    <a href="https://linktr.ee/dxdconsultoria" target="_blank" class="w-full py-9 text-center rounded-[2.5rem] font-black btn-gold transition-all text-2xl uppercase tracking-tighter" style="box-shadow: 0 0 50px rgba(var(--rgb-accent), 0.25);">
+                        Garantir Resultados
                     </a>
                 </div>
 
-                <!-- 24 Semanas -->
-                <div class="glass-card p-10 rounded-[2.5rem] flex flex-col border border-white/5 hover:border-[#e2e8ce]/20 transition-all text-left">
-                    <div class="mb-10">
-                        <h3 class="text-2xl font-bold text-white italic uppercase tracking-tighter">Semestral</h3>
-                        <p class="text-gray-500 text-sm font-medium">Foco em longevidade.</p>
+                <!-- Semestral -->
+                <div class="glass-card p-12 rounded-[4rem] flex flex-col text-left opacity-90">
+                    <div class="mb-12">
+                        <h3 class="text-2xl font-bold text-[var(--color-pure-white)] uppercase italic tracking-tighter mb-2">Semestral</h3>
+                        <p class="text-[var(--color-silver)] opacity-70 text-sm">Estilo de Vida Consolidado</p>
                     </div>
-                    <div class="mb-10">
-                        <p class="text-gray-500 line-through text-sm font-medium">De R$ 2.994,00</p>
-                        <div class="flex items-baseline gap-2">
-                            <span class="text-2xl font-bold text-[#e2e8ce]">6x</span>
-                            <span class="text-5xl font-black text-white tracking-tighter">R$ 369</span>
+                    <div class="mb-12">
+                        <p class="text-[var(--color-silver)] opacity-50 line-through text-xs font-medium uppercase mb-1">De R$ 2.994,00</p>
+                        <div class="flex items-baseline gap-4">
+                            <span class="text-3xl font-bold text-[var(--color-silver)]">6x</span>
+                            <span class="text-6xl font-black text-[var(--color-pure-white)] tracking-tighter">R$ 369</span>
                         </div>
                     </div>
-                    <ul class="space-y-5 mb-12 flex-grow text-sm">
-                        <li class="flex items-center gap-3 font-medium text-gray-300"><svg class="w-5 h-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg> Planejamento de Longo Prazo</li>
-                        <li class="flex items-center gap-3 font-medium text-gray-300"><svg class="w-5 h-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg> Suporte Estendido</li>
+                    <ul class="space-y-4 mb-14 flex-grow text-sm text-[var(--color-silver)] font-light">
+                        <li class="flex items-start gap-4">Todos os benefícios do Método 16S;</li>
+                        <li class="flex items-start gap-4">Planejamento estratégico de longo prazo;</li>
+                        <li class="flex items-start gap-4">Acompanhamento master especializado.</li>
                     </ul>
-                    <a href="https://linktr.ee/dxdconsultoria" target="_blank" class="w-full py-5 text-center rounded-2xl font-bold bg-white/5 hover:bg-white/10 border border-white/10 transition-all text-lg tracking-tight uppercase">
+                    <a href="https://linktr.ee/dxdconsultoria" target="_blank" class="w-full py-7 text-center rounded-3xl font-black bg-white/5 hover:bg-white/10 text-[var(--color-pure-white)] border border-neutral-hard transition-all text-xl uppercase tracking-widest">
                         Quero resultados
                     </a>
                 </div>
@@ -346,78 +401,41 @@
     </section>
 
     <!-- FAQ -->
-    <section class="py-24 px-4 max-w-4xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-4 italic uppercase tracking-tight">Dúvidas Frequentes</h2>
-            <p class="text-gray-500">Tudo o que precisa de saber para começar hoje.</p>
-        </div>
-
-        <div class="space-y-4 text-left">
-            <details class="group glass-card rounded-2xl overflow-hidden">
-                <summary class="flex justify-between items-center p-6 cursor-pointer hover:bg-white/5 transition-colors">
-                    <span class="text-lg font-bold text-[#e2e8ce] pr-4 italic uppercase tracking-tight">Como funciona o acompanhamento no dia a dia?</span>
-                    <svg class="w-5 h-5 text-emerald-500 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+    <section class="py-40 px-4 max-w-4xl mx-auto bg-[var(--color-base)]">
+        <h2 class="text-center font-squartiqa text-2xl lg:text-4xl text-[var(--color-pure-white)] mb-20 opacity-30 uppercase tracking-[0.7em]">Informações Técnicas</h2>
+        <div class="space-y-8 text-left">
+            <details class="group glass-card rounded-[2.5rem] overflow-hidden border border-neutral-hard">
+                <summary class="flex justify-between items-center p-10 cursor-pointer hover:bg-white/[0.02] transition-colors">
+                    <span class="text-xl font-bold text-[var(--color-beige)] italic uppercase tracking-widest">O acompanhamento é realmente direto?</span>
+                    <svg class="w-6 h-6 text-[var(--color-gold)] transition-transform duration-500 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"></path></svg>
                 </summary>
-                <div class="px-6 pb-6 text-gray-400 leading-relaxed border-t border-white/5 pt-4 text-sm">
-                    Todo o seu protocolo de treino e dieta estará disponível numa plataforma exclusiva. Terá acesso direto ao suporte 1:1 via WhatsApp diretamente com os especialistas (sem estagiários) para ajustes e dúvidas.
-                </div>
-            </details>
-
-            <details class="group glass-card rounded-2xl overflow-hidden">
-                <summary class="flex justify-between items-center p-6 cursor-pointer hover:bg-white/5 transition-colors">
-                    <span class="text-lg font-bold text-[#e2e8ce] pr-4 italic uppercase tracking-tight">Sou iniciante, a consultoria é para mim?</span>
-                    <svg class="w-5 h-5 text-emerald-500 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                </summary>
-                <div class="px-6 pb-6 text-gray-400 leading-relaxed border-t border-white/5 pt-4 text-sm">
-                    Sim. O direcionamento técnico evita que você perca meses com erros comuns. O método acelera seu aprendizado e garante que você comece com a técnica e a nutrição corretas desde o primeiro dia.
+                <div class="px-10 pb-10 text-[var(--color-silver)] leading-relaxed font-light text-lg">
+                    Sim. Ao contrário de consultorias de massa, você fala diretamente com Diego e Douglas. Não há intermediários ou estagiários. Cada ajuste no seu protocolo é feito por quem assina a sua evolução.
                 </div>
             </details>
         </div>
     </section>
 
     <!-- Rodapé -->
-    <footer class="py-24 px-4 text-center bg-[#1e1e1e] border-t border-white/5">
+    <footer class="py-40 px-4 text-center border-t border-neutral-hard" style="background-color: var(--color-pure-black);">
         <div class="max-w-4xl mx-auto flex flex-col items-center">
-            <div class="flex flex-col items-center mb-12 group">
-                <img src="TRANSPARENTE LOGO SVG.svg" alt="DxD Logo Footer" class="h-16 sm:h-20 w-auto mb-2 opacity-80 group-hover:opacity-100 transition-opacity">
-                <span class="font-squartiqa text-[#e2e8ce] text-sm sm:text-lg font-normal tracking-[0.25em] opacity-60">
-                    Consultoria Esportiva
-                </span>
+            <div class="mb-24 flex flex-col items-center opacity-40 grayscale brightness-150">
+                <img src="TRANSPARENTE LOGO SVG.svg" alt="DxD Legacy Footer" class="h-28 w-auto mb-6">
+                <span class="font-squartiqa text-[var(--color-pure-white)] text-sm tracking-[0.6em]">Consultoria Esportiva</span>
             </div>
-
-            <p class="text-gray-400 mb-12 text-lg leading-relaxed text-center max-w-xl">O problema não é falta de esforço. É falta de método. Junte-se ao time DxD.</p>
+            <p class="text-[var(--color-silver)] mb-20 text-2xl leading-relaxed font-light italic max-w-2xl">"Onde a ciência encontra a performance, e o esforço encontra o método."</p>
             
-            <div class="flex items-center justify-center gap-3 mb-10 text-emerald-500 font-bold uppercase tracking-[0.3em] text-[10px]">
-                <span class="w-2 h-2 bg-emerald-500 rounded-full scarcity-badge"></span>
-                Vagas disponíveis para Abril: 04
-            </div>
-
-            <a href="https://linktr.ee/dxdconsultoria" target="_blank" class="inline-block px-14 py-6 bg-emerald-600 hover:bg-emerald-700 text-white rounded-3xl font-black text-2xl transition-all shadow-2xl shadow-emerald-500/20 transform hover:scale-105 uppercase tracking-tighter">
-                Quero resultados
+            <a href="https://linktr.ee/dxdconsultoria" target="_blank" class="inline-block px-20 py-8 btn-gold rounded-[2.5rem] font-black text-2xl transition-all shadow-xl transform hover:scale-105 uppercase tracking-widest">
+                Fazer meu Alistamento
             </a>
             
-            <div class="mt-24">
-                <p class="text-[9px] text-gray-600 uppercase tracking-[0.6em] font-bold text-center">
-                    © 2024 DxD Consultoria Esportiva • Ciência e Performance.
+            <div class="mt-40 opacity-20">
+                <p class="text-[10px] text-[var(--color-beige)] uppercase tracking-[2em] font-bold text-center">
+                    © 2026 DxD Team • High-End Performance Architecture.
                 </p>
             </div>
         </div>
     </footer>
 
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
 </body>
 </html>
