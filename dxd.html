@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DxD Consultoria Esportiva | Elite Performance & Fit</title>
+    
+    <!-- ENGENHARIA DE PERFORMANCE: Pré-carregamento forçado (Preload) dos ativos visuais SVG. 
+         Isso anula o delay de carregamento e força o navegador a buscar as imagens em paralelo ao código. -->
+    <link rel="preload" as="image" href="logoDxD.svg">
+    <link rel="preload" as="image" href="duplaDxD.svg">
+    <link rel="preload" as="image" href="diego-treinador.svg">
+    <link rel="preload" as="image" href="douglas-nutricionista.svg">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&display=swap');
@@ -256,7 +264,8 @@
         <div class="max-w-6xl mx-auto flex flex-col items-center relative z-10">
             
             <div class="mb-10 flex flex-col items-center group">
-                <img src="logoDxD.svg" alt="DxD Elite Branding" class="logo-main locked-img transition-all duration-1000 group-hover:scale-105 mb-5 transform-gpu">
+                <!-- Adicionado fetchpriority="high" e decoding="sync" para priorizar renderização -->
+                <img src="logoDxD.svg" alt="DxD Elite Branding" fetchpriority="high" decoding="sync" class="logo-main locked-img transition-all duration-1000 group-hover:scale-105 mb-5 transform-gpu">
                 <span class="font-squartiqa text-[var(--color-beige)] text-base sm:text-xl lg:text-2xl font-light opacity-80">
                     Consultoria Esportiva
                 </span>
@@ -266,8 +275,8 @@
             <div class="relative w-full max-w-3xl mx-auto mb-12 flex justify-center">
                 <!-- SUBSTITUIÇÃO TÉCNICA: Remoção do "blur" pesado e uso de "radial-gradient" nativo da GPU para zero bugs no zoom mobile -->
                 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full rounded-full z-0 pointer-events-none transform-gpu" style="background: radial-gradient(circle, rgba(var(--rgb-accent), 0.15) 0%, transparent 65%);"></div>
-                <!-- Imagem SVG com aceleração de hardware ativada -->
-                <img src="duplaDxD.svg" alt="Diego e Douglas - Fundadores DxD" class="relative z-10 w-full h-auto object-contain filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)] locked-img transform-gpu">
+                <!-- Imagem SVG com aceleração de hardware ativada, alta prioridade de fetch e sincronização de decodificação -->
+                <img src="duplaDxD.svg" alt="Diego e Douglas - Fundadores DxD" fetchpriority="high" decoding="sync" class="relative z-10 w-full h-auto object-contain filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)] locked-img transform-gpu">
             </div>
 
             <span class="inline-block px-10 py-3 rounded-full premium-tag text-[9px] font-black mb-12 uppercase">
@@ -426,7 +435,8 @@
                         <!-- SUBSTITUIÇÃO TÉCNICA: Eliminação do CSS blur e adoção do gradiente radial com aceleração de GPU -->
                         <div class="absolute inset-0 rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none transform-gpu" style="background: radial-gradient(circle, rgba(var(--rgb-accent), 0.25) 0%, transparent 65%);"></div>
                         <!-- A classe locked-img impede cliques falsos, drag and drop e interação do browser. transform-gpu protege durante zoom -->
-                        <img src="diego-treinador.svg" alt="Treinador - Biomecânica" class="relative z-10 w-full h-full object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.8)] locked-img transform-gpu">
+                        <!-- loading="eager" para garantir download antecipado sem bloqueios -->
+                        <img src="diego-treinador.svg" alt="Treinador - Biomecânica" loading="eager" class="relative z-10 w-full h-full object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.8)] locked-img transform-gpu">
                     </div>
                 </div>
                 <!-- Coluna Direita: Texto -->
@@ -447,7 +457,7 @@
                     <div class="relative w-56 h-56 lg:w-80 lg:h-80 flex items-center justify-center">
                         <!-- SUBSTITUIÇÃO TÉCNICA: Eliminação do CSS blur e adoção do gradiente radial com aceleração de GPU -->
                         <div class="absolute inset-0 rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none transform-gpu" style="background: radial-gradient(circle, rgba(var(--rgb-accent), 0.25) 0%, transparent 65%);"></div>
-                        <img src="douglas-nutricionista.svg" alt="Douglas - Nutricionista Clínico" class="relative z-10 w-full h-full object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.8)] locked-img transform-gpu">
+                        <img src="douglas-nutricionista.svg" alt="Douglas - Nutricionista Clínico" loading="eager" class="relative z-10 w-full h-full object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.8)] locked-img transform-gpu">
                     </div>
                 </div>
                 <!-- Coluna Direita: Texto -->
@@ -662,7 +672,7 @@
     <footer class="py-20 px-4 text-center border-t border-neutral-hard" style="background-color: var(--color-pure-black);">
         <div class="max-w-4xl mx-auto flex flex-col items-center">
             <div class="mb-16 flex flex-col items-center opacity-40 grayscale brightness-150">
-                <img src="logoDxD.svg" alt="DxD Legacy Footer" class="h-28 w-auto mb-6 locked-img">
+                <img src="logoDxD.svg" alt="DxD Legacy Footer" loading="lazy" class="h-28 w-auto mb-6 locked-img">
                 <span class="font-squartiqa text-[var(--color-beige)] text-sm tracking-[0.6em]">Consultoria Esportiva</span>
             </div>
             
