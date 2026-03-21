@@ -204,13 +204,15 @@
             transform: scale(1.02);
         }
 
+        /* Estrutura perfeita para letreiro infinito (Matemática de Sub-pixel corrigida) */
         .animate-marquee {
-            display: inline-block;
-            animation: marquee 20s linear infinite;
+            animation: marquee 70s linear infinite;
+            will-change: transform; /* Aceleração de hardware na placa de vídeo */
         }
+
         @keyframes marquee {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            100% { transform: translateX(-100%); }
         }
 
         .logo-main {
@@ -283,13 +285,21 @@
         </div>
     </header>
 
-    <!-- Marquee -->
-    <section class="bg-[var(--color-base)] py-4 overflow-hidden border-y border-neutral-hard">
-        <div class="whitespace-nowrap flex animate-marquee pointer-events-none">
-            <span class="marquee-ray-text font-bold uppercase text-[10px] mx-8 tracking-[0.7em] italic">CIÊNCIA • PERFORMANCE • EXCLUSIVIDADE • INDIVIDUALIDADE • APENAS 10 VAGAS/MÊS •</span>
-            <span class="marquee-ray-text font-bold uppercase text-[10px] mx-8 tracking-[0.7em] italic">CIÊNCIA • PERFORMANCE • EXCLUSIVIDADE • INDIVIDUALIDADE • APENAS 10 VAGAS/MÊS •</span>
-            <span class="marquee-ray-text font-bold uppercase text-[10px] mx-8 tracking-[0.7em] italic">CIÊNCIA • PERFORMANCE • EXCLUSIVIDADE • INDIVIDUALIDADE • APENAS 10 VAGAS/MÊS •</span>
-            <span class="marquee-ray-text font-bold uppercase text-[10px] mx-8 tracking-[0.7em] italic">CIÊNCIA • PERFORMANCE • EXCLUSIVIDADE • INDIVIDUALIDADE • APENAS 10 VAGAS/MÊS •</span>
+    <!-- Marquee com Rolagem Infinita Perfeita (Clonagem Visual) -->
+    <section class="bg-[var(--color-base)] py-4 overflow-hidden border-y border-neutral-hard flex pointer-events-none">
+        <!-- Grupo Principal movendo-se a -100% -->
+        <div class="flex shrink-0 items-center animate-marquee">
+            <span class="marquee-ray-text font-bold uppercase text-[10px] mx-8 tracking-[0.7em] italic">CIÊNCIA • PERFORMANCE • EXCLUSIVIDADE • INDIVIDUALIDADE • EXCELÊNCIA • ESTRATÉGIA •</span>
+            <span class="marquee-ray-text font-bold uppercase text-[10px] mx-8 tracking-[0.7em] italic">CIÊNCIA • PERFORMANCE • EXCLUSIVIDADE • INDIVIDUALIDADE • EXCELÊNCIA • ESTRATÉGIA •</span>
+            <span class="marquee-ray-text font-bold uppercase text-[10px] mx-8 tracking-[0.7em] italic">CIÊNCIA • PERFORMANCE • EXCLUSIVIDADE • INDIVIDUALIDADE • EXCELÊNCIA • ESTRATÉGIA •</span>
+            <span class="marquee-ray-text font-bold uppercase text-[10px] mx-8 tracking-[0.7em] italic">CIÊNCIA • PERFORMANCE • EXCLUSIVIDADE • INDIVIDUALIDADE • EXCELÊNCIA • ESTRATÉGIA •</span>
+        </div>
+        <!-- Grupo Clone seguindo milimetricamente o principal -->
+        <div class="flex shrink-0 items-center animate-marquee" aria-hidden="true">
+            <span class="marquee-ray-text font-bold uppercase text-[10px] mx-8 tracking-[0.7em] italic">CIÊNCIA • PERFORMANCE • EXCLUSIVIDADE • INDIVIDUALIDADE • EXCELÊNCIA • ESTRATÉGIA •</span>
+            <span class="marquee-ray-text font-bold uppercase text-[10px] mx-8 tracking-[0.7em] italic">CIÊNCIA • PERFORMANCE • EXCLUSIVIDADE • INDIVIDUALIDADE • EXCELÊNCIA • ESTRATÉGIA •</span>
+            <span class="marquee-ray-text font-bold uppercase text-[10px] mx-8 tracking-[0.7em] italic">CIÊNCIA • PERFORMANCE • EXCLUSIVIDADE • INDIVIDUALIDADE • EXCELÊNCIA • ESTRATÉGIA •</span>
+            <span class="marquee-ray-text font-bold uppercase text-[10px] mx-8 tracking-[0.7em] italic">CIÊNCIA • PERFORMANCE • EXCLUSIVIDADE • INDIVIDUALIDADE • EXCELÊNCIA • ESTRATÉGIA •</span>
         </div>
     </section>
 
@@ -308,7 +318,7 @@
                         Sua evolução não pode depender de tentativa e erro. Alinhamos como o seu corpo reage ao <span class="text-[var(--color-accent)] font-semibold italic">treino</span> com a exata necessidade da sua <span class="text-[var(--color-accent)] font-semibold italic">alimentação</span>.
                     </p>
                     <p class="text-[var(--color-beige)] font-semibold italic border-l-4 border-[var(--color-accent)] pl-8 py-2">
-                        Onde outros entregam apenas um treino genérico, nós construímos um plano completo e exclusivo para o funcionamento do seu corpo.
+                        Onde outros entregam apenas protocolos copia e cola, nós construímos um plano completo e exclusivo para você.
                     </p>
                 </div>
             
@@ -318,7 +328,7 @@
                             <div class="w-16 h-16 bg-[var(--color-base)] text-[var(--color-accent)] font-black rounded-3xl flex items-center justify-center shrink-0 border border-white/10 group-hover:bg-[var(--color-accent)] group-hover:text-[var(--color-pure-black)] group-hover:border-transparent transition-all">01</div>
                             <div>
                                 <h4 class="text-[var(--color-beige)] font-bold uppercase tracking-widest text-base">Análise Completa</h4>
-                                <p class="text-[var(--color-silver)] text-sm">Entendemos a sua rotina, o seu metabolismo e o seu histórico de saúde.</p>
+                                <p class="text-[var(--color-silver)] text-sm">Através de consulta via chamada conosco, entendemos a sua rotina, seu histórico de saúde e suas limitações para prescrever os protocolos que melhor se encaixam à sua realidade atual.</p>
                             </div>
                         </div>
                         <div class="flex items-center gap-10 sm:gap-14 group">
@@ -332,7 +342,7 @@
                             <div class="w-16 h-16 bg-[var(--color-base)] text-[var(--color-accent)] font-black rounded-3xl flex items-center justify-center shrink-0 border border-white/10 group-hover:bg-[var(--color-accent)] group-hover:text-[var(--color-pure-black)] group-hover:border-transparent transition-all">03</div>
                             <div>
                                 <h4 class="text-[var(--color-beige)] font-bold uppercase tracking-widest text-base">Acompanhamento Contínuo</h4>
-                                <p class="text-[var(--color-silver)] text-sm">Ajustes semanais baseados no seu rendimento para que você nunca pare de evoluir.</p>
+                                <p class="text-[var(--color-silver)] text-sm">Ajustes semanais baseados nos seus feedback e no seu rendimento para que você nunca pare de evoluir.</p>
                             </div>
                         </div>
                     </div>
@@ -362,8 +372,8 @@
                 <div class="w-16 h-16 bg-[var(--color-base)] rounded-2xl flex items-center justify-center mb-10 border border-white/5">
                     <svg class="w-8 h-8 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
                 </div>
-                <h3 class="text-2xl font-bold text-[var(--color-beige)] mb-6 uppercase italic tracking-tighter">Moldado à realidade</h3>
-                <p class="text-[var(--color-silver)] leading-relaxed text-base font-light">O método se adapta a você, e não o contrário. Ajustamos o plano à sua rotina, preferências e limitações, garantindo consistência na vida real.</p>
+                <h3 class="text-2xl font-bold text-[var(--color-beige)] mb-6 uppercase italic tracking-tighter">Moldado à sua realidade</h3>
+                <p class="text-[var(--color-silver)] leading-relaxed text-base font-light">O protoclo se adapta a você, e não o contrário. Ajustamos o plano à sua rotina, preferências e limitações, garantindo consistência na vida real.</p>
             </div>
 
             <!-- 3 - Evolução Contínua -->
@@ -371,8 +381,8 @@
                 <div class="w-16 h-16 bg-[var(--color-base)] rounded-2xl flex items-center justify-center mb-10 border border-white/5">
                     <svg class="w-8 h-8 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
                 </div>
-                <h3 class="text-2xl font-bold text-[var(--color-beige)] mb-6 uppercase italic tracking-tighter">Evolução Contínua</h3>
-                <p class="text-[var(--color-silver)] leading-relaxed text-base font-light">Resultados visíveis em poucas semanas. O nosso diferencial é fazer você chegar no corpo que deseja através de um plano que realmente cabe no seu dia a dia.</p>
+                <h3 class="text-2xl font-bold text-[var(--color-beige)] mb-6 uppercase italic tracking-tighter">Evolução notável em semanas</h3>
+                <p class="text-[var(--color-silver)] leading-relaxed text-base font-light">Nossos alunos relatam mudanças visíveis logo nas primeiras 6 a 8 semanas. Nosso diferencial não é só o resultado, mas o tempo que demora para alcançá-lo.</p>
             </div>
 
             <!-- 4 - Suporte Semanal -->
@@ -380,8 +390,8 @@
                 <div class="w-16 h-16 bg-[var(--color-base)] rounded-2xl flex items-center justify-center mb-10 border border-white/5">
                     <svg class="w-8 h-8 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
                 </div>
-                <h3 class="text-2xl font-bold text-[var(--color-beige)] mb-6 uppercase italic tracking-tighter">Suporte Semanal</h3>
-                <p class="text-[var(--color-silver)] leading-relaxed text-base font-light">Você não recebe um PDF e é abandonado. Analisamos seu rendimento e os seus feedbacks toda semana, ajustando a rota para que você não estagne.</p>
+                <h3 class="text-2xl font-bold text-[var(--color-beige)] mb-6 uppercase italic tracking-tighter">Suporte inigualável</h3>
+                <p class="text-[var(--color-silver)] leading-relaxed text-base font-light">Você não recebe um PDF e é abandonado. Analisamos seu rendimento e os seus feedbacks todos os dias, ajustando a rota para que você não estagne.</p>
             </div>
 
             <!-- 5 - 100% Individual -->
@@ -390,7 +400,7 @@
                     <svg class="w-8 h-8 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
                 </div>
                 <h3 class="text-2xl font-bold text-[var(--color-beige)] mb-6 uppercase italic tracking-tighter">100% Individual</h3>
-                <p class="text-[var(--color-silver)] leading-relaxed text-base font-light">Treino e dieta criados exclusivamente para você, levando em conta os seus objetivos, gostos e limitações. Nada de treinos genéricos copiados da internet.</p>
+                <p class="text-[var(--color-silver)] leading-relaxed text-base font-light">Treino e dieta criados exclusivamente para você, levando em conta cada detalhe seu: seus objetivos, gostos e limitações. Nada de protocolos genéricos copiados da internet.</p>
             </div>
 
             <!-- 6 - Liberdade na Dieta -->
@@ -435,7 +445,7 @@
                 <!-- Coluna Direita: Texto -->
                 <div class="w-full flex-1 text-left">
                     <span class="text-[var(--color-accent)] font-bold uppercase tracking-widest text-sm mb-2 block">Especialista em Treinamento</span>
-                    <h3 class="text-3xl lg:text-4xl font-black text-[var(--color-beige)] mb-6 tracking-tight">Diego</h3>
+                    <h3 class="text-3xl lg:text-4xl font-black text-[var(--color-beige)] mb-6 tracking-tight">Diego Maciel</h3>
                     <div class="text-[var(--color-silver)] leading-relaxed font-light text-lg space-y-4">
                         <p>Desde 2022, produzo conteúdo com um objetivo claro: traduzir a ciência em uma linguagem simples e didática, sem perder o rigor técnico ou cair na desinformação. Acredito que a Prática Baseada em Evidências precisa ser acessível para pessoas comuns.</p>
                         <p>Nos bastidores, já atuei como gerente e treinador em grandes consultorias esportivas do país, o que significa que você provavelmente já viu grandes resultados que passaram pela minha mão em atletas e influenciadores.</p>
@@ -456,7 +466,7 @@
                 <!-- Coluna Direita: Texto -->
                 <div class="w-full flex-1 text-left">
                     <span class="text-[var(--color-accent)] font-bold uppercase tracking-widest text-sm mb-2 block">Nutrição Esportiva e Clínica</span>
-                    <h3 class="text-3xl lg:text-4xl font-black text-[var(--color-beige)] mb-6 tracking-tight">Douglas</h3>
+                    <h3 class="text-3xl lg:text-4xl font-black text-[var(--color-beige)] mb-6 tracking-tight">Douglas Picetti</h3>
                     <div class="text-[var(--color-silver)] leading-relaxed font-light text-lg space-y-4">
                         <p>Nutricionista formado pela Universidade Federal de Santa Catarina (UFSC), estuda profundamente o funcionamento do corpo e a nutrição desde 2015. É especialista em entregar resultados expressivos em emagrecimento e ganho de massa muscular, pautando-se sempre em uma dieta inteligente, flexível e perfeitamente adaptada à sua rotina.</p>
                         <p>Com mais de 10 anos de experiência prática, já ajudou a transformar a saúde e a qualidade de vida de centenas de pessoas. Sabe lidar com restrições alimentares e tem uma longa lista de casos de sucesso, ajudando desde pessoas que buscam qualidade de vida até a preparação de atletas campeões.</p>
@@ -672,7 +682,7 @@
             
             <div class="opacity-30">
                 <p class="text-[10px] text-[var(--color-beige)] uppercase tracking-[0.5em] sm:tracking-[1em] font-bold text-center">
-                    © 2026 DxD Team • Consultori Esportiva Premium
+                    © 2026 DxD Team • Consultoria Esportiva Premium
                 </p>
             </div>
         </div>
