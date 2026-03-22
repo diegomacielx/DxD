@@ -127,10 +127,36 @@
             animation: ray-sweep 2.5s infinite ease-in-out;
         }
 
+        /* Novo efeito: Raio de energia LENTO para textos de leitura (Não cansa a vista) */
+        .slow-energy-ray-text {
+            background: linear-gradient(
+                -45deg,
+                var(--color-beige) 0%,
+                var(--color-beige) 45%,
+                var(--color-accent) 48%, 
+                #ffffff 50%,             
+                var(--color-accent) 52%, 
+                var(--color-beige) 55%,
+                var(--color-beige) 100%
+            );
+            background-size: 250% 250%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 2px rgba(10, 113, 78, 0.15));
+            animation: ray-sweep-slow 21s infinite ease-in-out;
+        }
+
         @keyframes ray-sweep {
             0% { background-position: 100% 100%; }
             65% { background-position: 0% 0%; } 
             100% { background-position: 0% 0%; } 
+        }
+
+        /* Animação exclusiva para o texto lento com limites matemáticos cravados nas bordas da palavra */
+        @keyframes ray-sweep-slow {
+            0% { background-position: 95% 95%; } /* O raio começa encostado na primeira letra */
+            76% { background-position: 5% 5%; }  /* O raio acaba de sair da última letra (o de "exclusivo") */
+            100% { background-position: 5% 5%; } /* Aguarda os exatos 5 segundos combinados antes de recomeçar */
         }
 
         .marquee-ray-text {
@@ -191,6 +217,24 @@
             animation: ray-sweep 2.5s infinite ease-in-out;
         }
 
+        /* Nova classe para botão desativado/lista de espera com raio prateado */
+        .btn-energy-ray-waitlist {
+            background: linear-gradient(
+                -45deg,
+                var(--color-beige) 0%,
+                var(--color-beige) 45%,
+                #ffffff 48%, 
+                #ffffff 50%,             
+                #ffffff 52%, 
+                var(--color-beige) 55%,
+                var(--color-beige) 100%
+            );
+            background-size: 250% 250%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: ray-sweep 2.5s infinite ease-in-out;
+        }
+
         .btn-accent {
             background-color: var(--color-accent);
             color: var(--color-pure-black); 
@@ -201,6 +245,21 @@
         .btn-accent:hover {
             background-color: var(--color-accent-bright);
             box-shadow: 0 0 40px rgba(var(--rgb-accent), 0.5);
+            transform: scale(1.02);
+        }
+
+        /* Botão para lista de espera */
+        .btn-waitlist {
+            background-color: #1a1a1a;
+            color: var(--color-beige); 
+            font-weight: 900;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s ease;
+        }
+
+        .btn-waitlist:hover {
+            background-color: #2a2a2a;
+            border-color: rgba(255,255,255,0.3);
             transform: scale(1.02);
         }
 
@@ -312,17 +371,24 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center text-left">
                 <div class="space-y-10 text-[var(--color-silver)] text-xl leading-relaxed font-light">
                     <p>
-                        Somos profissionais pautados pela entrega de resultados visíveis na sua estética e na sua saúde. Nosso trabalho é inteiramente embasado no que há de <span class="text-[#e2e8ce] opacity-80 font-medium">mais atual e seguro na literatura científica mundial</span>.
-                    </p>
-                    <p>
-                        Sua evolução não pode depender de tentativa e erro. Alinhamos como o seu corpo reage ao <span class="text-[var(--color-accent)] font-semibold italic">treino</span> com a exata necessidade da sua <span class="text-[var(--color-accent)] font-semibold italic">alimentação</span>.
+                        Grandes resultados estéticos ou melhorias de saúde não vêm de achismo ou tentativa e erro, mas sim de muito estudo e teste prático. Nosso trabalho é inteiramente embasado no que há de <span class="text-[#e2e8ce] opacity-80 font-medium">mais atual e seguro na literatura científica.</span>.
                     </p>
                     <p class="text-[var(--color-beige)] font-semibold italic border-l-4 border-[var(--color-accent)] pl-8 py-2">
-                        Onde outros entregam apenas protocolos copia e cola, nós construímos um plano completo e exclusivo para você.
+                        Onde outros entregam apenas protocolos copia e cola, nós construímos um plano <span class="slow-energy-ray-text">personalizado e exclusivo</span> para você.
                     </p>
                 </div>
             
                 <div class="glass-card py-12 pr-12 pl-6 sm:pl-8 rounded-[4rem] relative overflow-hidden shadow-2xl border-neutral-hard">
+                    
+                    <!-- NOVO CABEÇALHO DOS 3 PILARES -->
+                    <div class="mb-12 border-b border-white/5 pb-10">
+                        <span class="text-[var(--color-accent)] font-bold uppercase tracking-widest text-xs mb-3 block">O Caminho Definitivo</span>
+                        <h3 class="text-2xl sm:text-3xl font-black text-[var(--color-beige)] mb-4 tracking-tight">A tríade do sucesso</h3>
+                        <p class="text-[var(--color-silver)] text-base sm:text-lg leading-relaxed font-light">
+                            É através destes <strong class="text-[var(--color-accent)] font-semibold">3 pilares</strong> interligados que nós vamos te tirar da estagnação e construir o físico que você sempre quis. Sem atalhos ou promessas vazias, apenas a aplicação cirúrgica do que já é validado na ciência:
+                        </p>
+                    </div>
+
                     <div class="space-y-14">
                         <div class="flex items-center gap-10 sm:gap-14 group">
                             <div class="w-16 h-16 bg-[var(--color-base)] text-[var(--color-accent)] font-black rounded-3xl flex items-center justify-center shrink-0 border border-white/10 group-hover:bg-[var(--color-accent)] group-hover:text-[var(--color-pure-black)] group-hover:border-transparent transition-all">01</div>
@@ -342,7 +408,7 @@
                             <div class="w-16 h-16 bg-[var(--color-base)] text-[var(--color-accent)] font-black rounded-3xl flex items-center justify-center shrink-0 border border-white/10 group-hover:bg-[var(--color-accent)] group-hover:text-[var(--color-pure-black)] group-hover:border-transparent transition-all">03</div>
                             <div>
                                 <h4 class="text-[var(--color-beige)] font-bold uppercase tracking-widest text-base">Acompanhamento Contínuo</h4>
-                                <p class="text-[var(--color-silver)] text-sm">Ajustes semanais baseados nos seus feedback e no seu rendimento para que você nunca pare de evoluir.</p>
+                                <p class="text-[var(--color-silver)] text-sm">Acompanhamento diário e ajustes baseados nos seus feedbacks e no seu rendimento para que você nunca pare de evoluir.</p>
                             </div>
                         </div>
                     </div>
@@ -382,7 +448,7 @@
                     <svg class="w-8 h-8 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
                 </div>
                 <h3 class="text-2xl font-bold text-[var(--color-beige)] mb-6 uppercase italic tracking-tighter">Evolução notável em semanas</h3>
-                <p class="text-[var(--color-silver)] leading-relaxed text-base font-light">Nossos alunos relatam mudanças visíveis logo nas primeiras 6 a 8 semanas. Nosso diferencial não é só o resultado, mas o tempo que demora para alcançá-lo.</p>
+                <p class="text-[var(--color-silver)] leading-relaxed text-base font-light">Nossos alunos relatam mudanças visíveis logo nas primeiras 6 a 8 semanas. Nosso diferencial não é só o resultado, mas o tempo que demora para você alcançá-lo.</p>
             </div>
 
             <!-- 4 - Suporte Semanal -->
@@ -428,7 +494,7 @@
     <!-- SECTION: QUEM SOMOS (Especialistas do Método) -->
     <section id="quem-somos" class="py-32 px-4 max-w-6xl mx-auto bg-[var(--color-base)]">
         <div class="text-center mb-24">
-            <h2 class="text-[var(--color-accent)] text-2xl lg:text-4xl font-black tracking-widest opacity-60 uppercase">Especialistas do Método</h2>
+            <h2 class="text-[var(--color-accent)] text-2xl lg:text-4xl font-black tracking-widest opacity-60 uppercase">Os responsáveis pela sua transformação</h2>
         </div>
         
         <div class="space-y-12">
@@ -476,18 +542,12 @@
 
         </div>
     </section>
-    
-    <!-- PROVA SOCIAL / RESULTADOS -->
-    <section class="py-32 px-4 bg-[var(--color-section)] border-t border-white/5 text-center">
-        <h2 class="text-3xl font-black text-[var(--color-beige)] mb-10">Resultados Reais</h2>
-        <p class="text-[var(--color-silver)]">+100 alunos transformados com método validado</p>
-    </section>
 
     <!-- Planos -->
     <section id="planos" class="py-32 px-4 bg-[var(--color-section)] border-t border-neutral-hard">
         <div class="max-w-6xl mx-auto text-center">
-            <h2 class="text-[var(--color-beige)] text-4xl lg:text-6xl font-black mb-8 tracking-tight">Selecione seu Destino</h2>
-            <p class="text-lg text-[var(--color-silver)] max-w-2xl mx-auto mb-20 font-light italic">Acesso exclusivo à metodologia de alta performance DxD.</p>
+            <h2 class="text-[var(--color-beige)] text-4xl lg:text-6xl font-black mb-8 tracking-tight">Escolha como você quer evoluir</h2>
+            <p class="text-lg text-[var(--color-silver)] max-w-2xl mx-auto mb-20 font-light italic">Você escolhe o período, nós cuidamos da sua evolução.</p>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
                 
@@ -502,11 +562,11 @@
                         <span class="text-[var(--color-silver)] text-sm mb-1">/mês</span>
                     </div>
                     <ul class="space-y-4 mb-10 text-sm text-[var(--color-silver)] font-light">
-                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Prescrição de dieta individualizada no app;</li>
-                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Treino personalizado no aplicativo;</li>
-                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Suporte via WhatsApp para dúvidas.</li>
+                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Consulta via chamada e prescrição de dieta individualizada junto com o paciente;</li>
+                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Treino 100% personalizado em app premium;</li>
+                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Suporte diário via WhatsApp para todas as suas dúvidas.</li>
                     </ul>
-                    <!-- Link do Funil de Aplicação -->
+                    <!-- Link Genérico para os outros planos -->
                     <a href="https://linktr.ee/dxdconsultoria" target="_blank" class="mt-auto w-full py-4 text-center rounded-xl font-bold bg-[var(--color-base)] hover:bg-white/10 text-[var(--color-beige)] border border-white/10 transition-all text-sm uppercase tracking-widest">
                         Quero resultados
                     </a>
@@ -520,8 +580,10 @@
                     </div>
 
                     <div class="mb-8 mt-2">
-                        <div class="inline-block px-3 py-1 mb-4 rounded-full text-[9px] font-bold uppercase tracking-widest urgency-badge">
-                            ⚡ Restam 2 vagas
+                        <!-- ID adicionado para controle via JavaScript -->
+                        <div id="badge-vagas" class="inline-block px-3 py-1 mb-4 rounded-full text-[9px] font-bold uppercase tracking-widest urgency-badge transition-colors duration-500">
+                            <!-- O texto será injetado dinamicamente aqui -->
+                            ⚡ Calculando vagas...
                         </div>
                         <h3 class="text-3xl font-black text-[var(--color-beige)] uppercase italic tracking-tighter mb-1">Programa 16S</h3>
                         <p class="text-[var(--color-accent)] text-xs font-bold uppercase tracking-widest">Acompanhamento Premium</p>
@@ -536,15 +598,16 @@
                     </div>
                     
                     <ul class="space-y-4 mb-10 text-sm leading-relaxed text-[var(--color-silver)] font-light">
-                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] font-black mt-0.5">✔</span> <span><strong class="text-[var(--color-beige)] font-semibold">Dieta e Treino</strong> individualizados no app;</span></li>
+                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] font-black mt-0.5">✔</span> <span><strong class="text-[var(--color-beige)] font-semibold">Consulta e prescrição personalizada</strong> da dieta junto com o paciente;</span></li>
+                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] font-black mt-0.5">✔</span> <span><strong class="text-[var(--color-beige)] font-semibold">Treino e cardios</strong> 100% personalizados em app premium;</span></li>
                         <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] font-black mt-0.5">✔</span> <span><strong class="text-[var(--color-beige)] font-semibold">Suporte diário</strong> prioritário e direto conosco;</span></li>
                         <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] font-black mt-0.5">✔</span> <span><strong class="text-[var(--color-beige)] font-semibold">Avaliações semanais</strong> para garantir seu progresso;</span></li>
-                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] font-black mt-0.5">✔</span> <span><strong class="text-[var(--color-beige)] font-semibold">Correção de exercícios</strong> através de vídeos.</span></li>
+                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] font-black mt-0.5">✔</span> <span><strong class="text-[var(--color-beige)] font-semibold">Correção de exercícios</strong> em vídeo através de app especializado .</span></li>
                     </ul>
                     
-                    <!-- Link do Funil de Aplicação -->
-                    <a href="https://linktr.ee/dxdconsultoria" target="_blank" class="mt-auto w-full py-4 text-center rounded-xl font-bold btn-accent transition-all text-sm uppercase tracking-widest" style="box-shadow: 0 0 30px rgba(var(--rgb-accent), 0.2);">
-                        <span class="btn-energy-ray-text">Preencher Aplicação</span>
+                    <!-- Botão dinâmico com IDs para receber injeção do script -->
+                    <a id="cta-16s" href="#" target="_blank" class="mt-auto w-full py-4 text-center rounded-xl font-bold btn-accent transition-all text-sm uppercase tracking-widest" style="box-shadow: 0 0 30px rgba(var(--rgb-accent), 0.2);">
+                        <span id="texto-cta-16s" class="btn-energy-ray-text">Carregando...</span>
                     </a>
                 </div>
 
@@ -564,11 +627,11 @@
                         </div>
                     </div>
                     <ul class="space-y-4 mb-10 text-sm text-[var(--color-silver)] font-light">
-                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Todos os benefícios da Consultoria Premium;</li>
+                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Todos os benefícios do plano anterior;</li>
                         <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Maior tempo para construir um físico sólido;</li>
-                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Acompanhamento constante com a dupla DxD.</li>
+                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Acompanhamento constante conosco.</li>
                     </ul>
-                    <!-- Link do Funil de Aplicação -->
+                    <!-- Link Genérico para os outros planos -->
                     <a href="https://linktr.ee/dxdconsultoria" target="_blank" class="mt-auto w-full py-4 text-center rounded-xl font-bold bg-[var(--color-base)] hover:bg-white/10 text-[var(--color-beige)] border border-white/10 transition-all text-sm uppercase tracking-widest">
                         Quero resultados
                     </a>
@@ -594,9 +657,9 @@
                     <p>Como a DxD é o trabalho lado a lado de um <strong class="text-[var(--color-beige)] font-medium">treinador e um nutricionista</strong>, nós olhamos para a sua saúde e para o seu corpo como um todo:</p>
                     <ul class="space-y-3 pt-2">
                         <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> <span><strong class="text-[var(--color-beige)] font-medium">No treino:</strong> Ajustamos a escolha dos exercícios e o volume de treino para que você pare de sentir dores e volte a evoluir. Você vai treinar com intensidade, mas com total segurança, melhorando seus pontos fracos.</span></li>
-                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> <span><strong class="text-[var(--color-beige)] font-medium">Na dieta:</strong> Vamos muito além de contar calorias. Se você tem exames alterados, metabolismo lento ou problemas de digestão, a dieta não será apenas para estética, mas para recuperar a sua saúde e a sua energia de verdade.</span></li>
+                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> <span><strong class="text-[var(--color-beige)] font-medium">Na dieta:</strong> Vamos muito além de contar calorias. Se você possui condições clínicas pré-existentes (resistência a insulina, alteração em exames, problemas gastrointestinais, saúde da mulher, lipedema, exageros alimentares), o protocolo nutricional atuará como uma intervenção focada em restaurar e melhorar sua saúde de maneira global, trazendo as melhorias estéticas e de performance que deseja.</span></li>
                     </ul>
-                    <p class="pt-2">O resultado é que o esforço que você faz na academia recebe exatamente o combustível certo da sua alimentação. É assim que entregamos resultados muito acima da média e com saúde garantida.</p>
+                    <p class="pt-2">O resultado dessa combinação é o fim da sua estagnação. Quando alinhamos um treino eficiente e seguro com uma dieta que te permite seguir todos os dias, a mudança estética deixa de ser um sacrifício e passa a ser uma resposta natural do seu corpo.</p>
                 </div>
             </details>
 
@@ -619,8 +682,13 @@
                     <svg class="w-6 h-6 text-[var(--color-beige)] transition-transform duration-500 group-open:rotate-180 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </summary>
                 <div class="px-8 lg:px-10 pb-10 text-[var(--color-silver)] leading-relaxed font-light text-base lg:text-lg space-y-4">
-                    <p>Você terá acesso ao nosso canal exclusivo onde poderá falar diretamente conosco para tirar dúvidas.</p>
-                    <p>Você poderá enviar perguntas sobre a sua dieta, sobre o treino, e até mesmo gravar vídeos da sua execução na academia para que possamos corrigir e garantir que você está fazendo o movimento certo.</p>
+                    <p>Você estará em um grupo no WhatsApp que formaremos assim que entrar na consultoria. Neste grupo estarão você, o treinador e o nutricionista.</p>
+                    <p>Neste grupo você poderá enviar dúvidas sobre a sua dieta e sobre o seu treino, mandar vídeos da sua execução nos exercícios para análise, relatar dificuldades e dar feedbacks sobre os protocolos.</p>
+                    <p>Nós te ajudaremos com tudo o que for necessário:</p>
+                    <ul class="space-y-4 pt-2">
+                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> <span><strong class="text-[var(--color-beige)] font-medium">O treinador:</strong> Analisa e corrige seus movimentos por vídeo, ajusta o treino para eliminar dores ou evitar lesões e esclarece qualquer dúvida que você tenha (inclusive sobre exercícios e dicas que você vê na internet).</span></li>
+                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> <span><strong class="text-[var(--color-beige)] font-medium">O nutricionista:</strong> Garante que a dieta se encaixe na sua vida real. Te ajuda a fazer substituições fáceis no dia a dia, escolher alimentos, orienta sobre o que comer em restaurantes, tira dúvidas sobre suplementos e faz ajustes rápidos sempre que a sua rotina sair do planejado.</span></li>
+                    </ul>
                 </div>
             </details>
 
@@ -632,7 +700,7 @@
                 </summary>
                 <div class="px-8 lg:px-10 pb-10 text-[var(--color-silver)] leading-relaxed font-light text-base lg:text-lg space-y-4">
                     <p>Tudo o que prescrevemos leva em conta as suas dores, o seu histórico de saúde e as suas limitações físicas.</p>
-                    <p>Logo que você se torna aluno, nós te enviamos um formulário super detalhado para entendermos tudo o que acontece com o seu corpo hoje.</p>
+                    <p>Logo que você se torna aluno(a), nós te enviamos um formulário detalhado para entendermos tudo o que acontece com o seu corpo hoje.</p>
                     <p>A partir disso, você recebe recomendações de exercícios específicos para fortalecer e blindar o seu corpo, ajudando você a alcançar o corpo que deseja sem se machucar no processo.</p>
                 </div>
             </details>
@@ -649,6 +717,68 @@
                     <p>O plano é 100% feito para o seu nível de experiência atual.</p>
                 </div>
             </details>
+
+            <!-- Pergunta 6 (Nutrição) -->
+            <details class="group glass-card rounded-3xl overflow-hidden border border-neutral-hard">
+                <summary class="flex justify-between items-center p-8 lg:p-10 cursor-pointer hover:bg-white/[0.02] transition-colors outline-none">
+                    <span class="text-lg lg:text-xl font-bold text-[var(--color-accent)] leading-snug pr-6">Vou precisar cortar tudo o que eu gosto ou parar de comer doces para ter resultados?</span>
+                    <svg class="w-6 h-6 text-[var(--color-beige)] transition-transform duration-500 group-open:rotate-180 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </summary>
+                <div class="px-8 lg:px-10 pb-10 text-[var(--color-silver)] leading-relaxed font-light text-base lg:text-lg space-y-4">
+                    <p>De forma alguma! Não trabalhamos com terrorismo alimentar. A ciência nos mostra que a restrição severa e a exclusão de alimentos que você gosta são as principais causas da desistência e do famoso "efeito sanfona".</p>
+                    <p>O seu protocolo nutricional será pensado para entregar o resultado estético que você deseja, mas com flexibilidade suficiente para incluir o que te dá prazer. Nós adaptamos a dieta à sua vida social, e não o contrário.</p>
+                </div>
+            </details>
+
+            <!-- Pergunta 7 (Nutrição) -->
+            <details class="group glass-card rounded-3xl overflow-hidden border border-neutral-hard">
+                <summary class="flex justify-between items-center p-8 lg:p-10 cursor-pointer hover:bg-white/[0.02] transition-colors outline-none">
+                    <span class="text-lg lg:text-xl font-bold text-[var(--color-accent)] leading-snug pr-6">Vou precisar gastar muito dinheiro com suplementos caros todos os meses?</span>
+                    <svg class="w-6 h-6 text-[var(--color-beige)] transition-transform duration-500 group-open:rotate-180 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </summary>
+                <div class="px-8 lg:px-10 pb-10 text-[var(--color-silver)] leading-relaxed font-light text-base lg:text-lg space-y-4">
+                    <p>Absolutamente não. A literatura científica é muito clara: a base de qualquer transformação estética e metabólica está na comida de verdade.</p>
+                    <p>Os suplementos são apenas a ponta da pirâmide. Eles serão prescritos unicamente se houver necessidade de facilitar a sua rotina (como o uso de Whey Protein pela praticidade). Nossa prescrição prioriza alimentos acessíveis e foca apenas no que realmente tem eficácia comprovada, poupando o seu dinheiro de promessas falsas da indústria.</p>
+                </div>
+            </details>
+
+            <!-- Pergunta 8 (Nutrição) -->
+            <details class="group glass-card rounded-3xl overflow-hidden border border-neutral-hard">
+                <summary class="flex justify-between items-center p-8 lg:p-10 cursor-pointer hover:bg-white/[0.02] transition-colors outline-none">
+                    <span class="text-lg lg:text-xl font-bold text-[var(--color-accent)] leading-snug pr-6">Minha rotina é muito corrida. Preciso comer de 3 em 3 horas ou carregar várias marmitas para o trabalho?</span>
+                    <svg class="w-6 h-6 text-[var(--color-beige)] transition-transform duration-500 group-open:rotate-180 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </summary>
+                <div class="px-8 lg:px-10 pb-10 text-[var(--color-silver)] leading-relaxed font-light text-base lg:text-lg space-y-4">
+                    <p>O mito de que comer de 3 em 3 horas "acelera o metabolismo" já foi derrubado pela ciência há muitos anos. O que dita o seu resultado é o saldo e o fracionamento total do seu dia.</p>
+                    <p>Se você só tem tempo para fazer 3 refeições diárias, ou se precisa de opções rápidas e líquidas para consumir no trânsito, nós ajustaremos o volume e a densidade calórica exatamente para essa realidade. A melhor dieta do mundo é aquela que você consegue seguir com consistência dentro da sua rotina atual.</p>
+                </div>
+            </details>
+
+            <!-- Pergunta 9 (Nutrição) -->
+            <details class="group glass-card rounded-3xl overflow-hidden border border-neutral-hard">
+                <summary class="flex justify-between items-center p-8 lg:p-10 cursor-pointer hover:bg-white/[0.02] transition-colors outline-none">
+                    <span class="text-lg lg:text-xl font-bold text-[var(--color-accent)] leading-snug pr-6">Sou vegano(a) / vegetariano(a), a consultoria é pra mim?</span>
+                    <svg class="w-6 h-6 text-[var(--color-beige)] transition-transform duration-500 group-open:rotate-180 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </summary>
+                <div class="px-8 lg:px-10 pb-10 text-[var(--color-silver)] leading-relaxed font-light text-base lg:text-lg space-y-4">
+                    <p>Com certeza! A ciência já comprovou que dietas veganas e vegetarianas entregam resultados de emagrecimento e ganho de massa muscular igualmente às dietas com carne.</p>
+                    <p>O erro de quem tenta fazer isso sozinho é simplesmente "tirar a carne" do prato. Na DxD, nós fazemos a combinação exata das fontes vegetais para garantir que você bata sua meta de proteínas diárias e construa músculos de verdade, além de cuidarmos da absorção de vitaminas essenciais (como a B12 e o ferro).</p>
+                    <p>Também ajustamos a quantidade de fibras na dieta para evitar que você sofra com gases ou estufamento. Entregamos um plano que respeita 100% as suas escolhas éticas, sem abrir mão de um resultado estético de alto nível.</p>
+                </div>
+            </details>
+
+            <!-- Pergunta 10 (Pagamento - Fechamento de Venda) -->
+            <details class="group glass-card rounded-3xl overflow-hidden border border-neutral-hard">
+                <summary class="flex justify-between items-center p-8 lg:p-10 cursor-pointer hover:bg-white/[0.02] transition-colors outline-none">
+                    <span class="text-lg lg:text-xl font-bold text-[var(--color-accent)] leading-snug pr-6">Quais são as formas de pagamento?</span>
+                    <svg class="w-6 h-6 text-[var(--color-beige)] transition-transform duration-500 group-open:rotate-180 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </summary>
+                <div class="px-8 lg:px-10 pb-10 text-[var(--color-silver)] leading-relaxed font-light text-base lg:text-lg space-y-4">
+                    <p>Nós trabalhamos com formas de pagamento totalmente flexíveis para facilitar a sua entrada. Você pode optar pelo pagamento via <strong class="text-[var(--color-beige)] font-medium">PIX, débito ou parcelar no cartão de crédito</strong>. Além disso, também trabalhamos com <strong class="text-[var(--color-beige)] font-medium">débito automático</strong>.</p>
+                    <p>Caso precise, nosso sistema também permite pagamentos combinados. Você pode dividir o valor usando <strong class="text-[var(--color-beige)] font-medium">dois cartões de crédito diferentes</strong> ou até mesmo mesclar o pagamento (dando uma entrada no <strong class="text-[var(--color-beige)] font-medium">PIX e parcelando o restante no cartão</strong>).</p>
+                    <p>Todo o processo é <strong class="text-[var(--color-beige)] font-medium">100% seguro, rápido e transparente</strong>.</p>
+                </div>
+            </details>
         </div>
     </section>
 
@@ -658,8 +788,8 @@
             <h2 class="text-3xl lg:text-5xl font-black text-[var(--color-beige)] mb-8 tracking-tight">Ainda tem alguma dúvida?</h2>
             
             <div class="text-[var(--color-silver)] text-lg lg:text-xl leading-relaxed font-light space-y-4 mb-12">
-                <p>Se você tem alguma dúvida rápida antes de fazer a sua aplicação para a <strong class="text-[var(--color-beige)] font-medium">DxD Consultoria</strong>, aperte no botão abaixo e fale com o nosso suporte no WhatsApp.</p>
-                <p class="pt-4">Nossa equipe está pronta para te atender e te ajudar a dar o primeiro passo!</p>
+                <p>Se restou alguma dúvida sobre nossa consultoria, clique no botão abaixo, fale com a nossa equipe no WhatsApp e entenda exatamente como funciona.</p>
+                <p>Nossa equipe está pronta para te atender e te ajudar a dar o primeiro passo!</p>
             </div>
             
             <a href="https://wa.me/SEUNUMEROAQUI" target="_blank" class="inline-flex items-center justify-center gap-3 px-8 py-5 btn-accent rounded-xl font-bold text-base uppercase tracking-widest shadow-xl mx-auto hover:-translate-y-1 transition-transform">
@@ -688,5 +818,74 @@
         </div>
     </footer>
 
+    <!-- =======================================================
+         MOTOR DE AUTOMAÇÃO E PAINEL DE CONFIGURAÇÃO DxD
+         ======================================================= -->
+    <script>
+        /**
+         * ==========================================
+         * PAINEL DE CONTROLE DE VAGAS E LINKS
+         * ==========================================
+         * 1. Altere VAGAS_DISPONIVEIS.
+         * - Se > 0: Mostra a urgência e botão leva pro WhatsApp.
+         * - Se = 0: Escreve "Esgotado", muda a cor do botão e leva pra Lista de Espera.
+         * 2. Insira seus links reais abaixo.
+         */
+        const VAGAS_DISPONIVEIS = 2; // Teste colocar 0 para ver a mágica da Lista de Espera acontecer
+        
+        const LINK_WHATSAPP = "https://wa.me/SEUNUMEROAQUI";
+        const LINK_LISTA_ESPERA = "https://seu-formulario-aqui.typeform.com"; // Ex: link do Typeform ou Tally.so
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // Obter o mês atual dinamicamente
+            const meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+            const dataAtual = new Date();
+            const mesAtual = meses[dataAtual.getMonth()];
+
+            // Selecionar os elementos que vão sofrer mutação
+            const badgeVagas = document.getElementById('badge-vagas');
+            const cta16s = document.getElementById('cta-16s');
+            const textoCta16s = document.getElementById('texto-cta-16s');
+            
+            // ==========================================
+            // LÓGICA DO FUNIL DE LISTA DE ESPERA
+            // ==========================================
+            if (badgeVagas && cta16s && textoCta16s) {
+                
+                if (VAGAS_DISPONIVEIS <= 0) {
+                    // AÇÃO QUANDO NÃO HÁ VAGAS (FUNIL DE DEMANDA REPRIMIDA)
+                    
+                    // 1. Atualiza o selo gramaticalmente
+                    badgeVagas.innerHTML = `❌ Vagas esgotadas para ${mesAtual}`;
+                    badgeVagas.classList.remove('text-[var(--color-accent-bright)]', 'urgency-badge');
+                    badgeVagas.classList.add('text-red-500');
+                    badgeVagas.style.borderColor = 'rgba(239, 68, 68, 0.4)';
+                    badgeVagas.style.backgroundColor = 'rgba(239, 68, 68, 0.1)';
+                    badgeVagas.style.animation = 'none'; 
+                    
+                    // 2. Transforma o botão verde de venda em um botão de Lista de Espera
+                    cta16s.href = LINK_LISTA_ESPERA;
+                    cta16s.classList.remove('btn-accent');
+                    cta16s.classList.add('btn-waitlist');
+                    cta16s.style.boxShadow = 'none';
+                    
+                    // 3. Atualiza o texto interno com raio prateado/sóbrio
+                    textoCta16s.innerHTML = "Entrar na Lista de Espera";
+                    textoCta16s.className = "btn-energy-ray-waitlist";
+
+                } else {
+                    // AÇÃO QUANDO HÁ VAGAS (FUNIL DE VENDAS ATIVO VIA WHATSAPP)
+                    
+                    // 1. Atualiza o selo gramaticalmente
+                    const textoVaga = VAGAS_DISPONIVEIS === 1 ? 'vaga' : 'vagas';
+                    badgeVagas.innerHTML = `⚡ Restam ${VAGAS_DISPONIVEIS} ${textoVaga} para ${mesAtual}`;
+                    
+                    // 2. Direciona o botão para o WhatsApp de fechamento
+                    cta16s.href = LINK_WHATSAPP;
+                    textoCta16s.innerHTML = "Garantir Minha Vaga";
+                }
+            }
+        });
+    </script>
 </body>
 </html>
