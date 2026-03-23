@@ -567,7 +567,7 @@
                         <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Suporte diário via WhatsApp para todas as suas dúvidas.</li>
                     </ul>
                     <!-- Link Genérico para os outros planos -->
-                    <a href="https://linktr.ee/dxdconsultoria" target="_blank" class="mt-auto w-full py-4 text-center rounded-xl font-bold bg-[var(--color-base)] hover:bg-white/10 text-[var(--color-beige)] border border-white/10 transition-all text-sm uppercase tracking-widest">
+                    <a href="https://wa.me/5592985803833?text=Olá!%20Vim%20pelo%20site%20e%20tenho%20interesse%20no%20Plano%20Mensal.%20Como%20podemos%20prosseguir?" target="_blank" class="mt-auto w-full py-4 text-center rounded-xl font-bold bg-[var(--color-base)] hover:bg-white/10 text-[var(--color-beige)] border border-white/10 transition-all text-sm uppercase tracking-widest">
                         Quero resultados
                     </a>
                 </div>
@@ -632,7 +632,7 @@
                         <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Acompanhamento constante conosco.</li>
                     </ul>
                     <!-- Link Genérico para os outros planos -->
-                    <a href="https://linktr.ee/dxdconsultoria" target="_blank" class="mt-auto w-full py-4 text-center rounded-xl font-bold bg-[var(--color-base)] hover:bg-white/10 text-[var(--color-beige)] border border-white/10 transition-all text-sm uppercase tracking-widest">
+                    <a href="https://wa.me/5592985803833?text=Olá!%20Vim%20pelo%20site%20e%20tenho%20interesse%20no%20Plano%20Semestral.%20Como%20podemos%20prosseguir?" target="_blank" class="mt-auto w-full py-4 text-center rounded-xl font-bold bg-[var(--color-base)] hover:bg-white/10 text-[var(--color-beige)] border border-white/10 transition-all text-sm uppercase tracking-widest">
                         Quero resultados
                     </a>
                 </div>
@@ -792,7 +792,7 @@
                 <p>Nossa equipe está pronta para te atender e te ajudar a dar o primeiro passo!</p>
             </div>
             
-            <a href="https://wa.me/SEUNUMEROAQUI" target="_blank" class="inline-flex items-center justify-center gap-3 px-8 py-5 btn-accent rounded-xl font-bold text-base uppercase tracking-widest shadow-xl mx-auto hover:-translate-y-1 transition-transform">
+            <a href="https://wa.me/5592985803833?text=Olá!%20Estou%20bem%20interessado(a)%20na%20consultoria,%20mas%20tenho%20uma%20dúvida%20específica%20que%20não%20encontrei%20na%20página.%20Podem%20me%20orientar?" target="_blank" class="inline-flex items-center justify-center gap-3 px-8 py-5 btn-accent rounded-xl font-bold text-base uppercase tracking-widest shadow-xl mx-auto hover:-translate-y-1 transition-transform">
                 <!-- Ícone do WhatsApp -->
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12.031 21.122c-1.468 0-2.936-.372-4.252-1.077l-4.73 1.242 1.267-4.614c-.775-1.353-1.185-2.883-1.185-4.436 0-5.111 4.161-9.273 9.274-9.273 5.115 0 9.276 4.162 9.276 9.273 0 5.113-4.161 9.274-9.276 9.274h-.002zm0-16.89c-4.195 0-7.603 3.409-7.603 7.604 0 1.341.348 2.651 1.01 3.811l-1.002 3.652 3.738-.98c1.116.602 2.373.92 3.66.92h.001c4.196 0 7.605-3.411 7.605-7.605 0-4.197-3.408-7.606-7.603-7.606zm3.987 10.378c-.218-.109-1.29-.639-1.488-.711-.198-.073-.345-.109-.492.109-.148.218-.564.711-.692.856-.128.145-.257.164-.475.055-.218-.109-.922-.34-1.756-1.082-.648-.578-1.086-1.293-1.214-1.512-.128-.218-.014-.336.095-.445.098-.098.218-.255.326-.382.109-.127.145-.218.218-.363.073-.145.036-.273-.018-.382-.055-.109-.492-1.182-.673-1.618-.178-.426-.358-.368-.492-.375-.128-.007-.275-.007-.423-.007-.148 0-.391.055-.595.273-.205.218-.782.764-.782 1.864 0 1.099.8 2.164.913 2.309.109.145 1.573 2.399 3.813 3.364 2.24 1.009 2.24.636 2.659.582.418-.055 1.29-.527 1.472-1.036.182-.509.182-.945.128-1.036-.055-.091-.205-.145-.423-.255z" />
@@ -833,7 +833,9 @@
          */
         const VAGAS_DISPONIVEIS = 2; // Teste colocar 0 para ver a mágica da Lista de Espera acontecer
         
-        const LINK_WHATSAPP = "https://wa.me/SEUNUMEROAQUI";
+        const MEU_WHATSAPP = "5592985803833";
+        const MSG_16S = "Olá! Vim pelo site e tenho interesse no Plano 16S. Como podemos prosseguir?";
+        const LINK_WHATSAPP = `https://wa.me/${MEU_WHATSAPP}?text=${encodeURIComponent(MSG_16S)}`;
         const LINK_LISTA_ESPERA = "https://seu-formulario-aqui.typeform.com"; // Ex: link do Typeform ou Tally.so
 
         document.addEventListener("DOMContentLoaded", () => {
