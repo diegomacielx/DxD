@@ -297,6 +297,33 @@
             -webkit-user-drag: none;
             -webkit-touch-callout: none;
         }
+
+        /* =========================================
+           NOVAS CLASSES DE NEURODESIGN (SCROLL REVEAL E FAQ)
+           ========================================= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+
+        /* Animação suave para o FAQ */
+        details[open] summary ~ * {
+            animation: sweep-down 0.4s ease-in-out;
+        }
+
+        @keyframes sweep-down {
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body class="antialiased overflow-x-hidden bg-[var(--color-matte)]">
@@ -364,12 +391,12 @@
 
     <!-- Metodologia (Simplificada para a linguagem do cliente) -->
     <section id="metodologia" class="py-40 px-4 bg-[var(--color-section)] border-b border-neutral-hard">
-        <div class="max-w-6xl mx-auto">
+        <div class="max-w-6xl mx-auto reveal">
             <h2 class="text-center text-[var(--color-beige)] text-4xl lg:text-5xl font-black tracking-tight mb-20 leading-tight">
                 Metodologia DxD:<br><span class="text-[var(--color-accent)]">Resultados com Ciência</span>
             </h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center text-left">
-                <div class="space-y-10 text-[var(--color-silver)] text-xl leading-relaxed font-light">
+                <div class="space-y-10 text-[var(--color-silver)] text-xl leading-relaxed font-light reveal reveal-delay-1">
                     <p>
                         Grandes resultados estéticos ou melhorias de saúde não vêm de achismo ou tentativa e erro, mas sim de muito estudo e teste prático. Nosso trabalho é inteiramente embasado no que há de <span class="text-[#e2e8ce] opacity-80 font-medium">mais atual e seguro na literatura científica.</span>.
                     </p>
@@ -378,7 +405,7 @@
                     </p>
                 </div>
             
-                <div class="glass-card py-12 pr-12 pl-6 sm:pl-8 rounded-[4rem] relative overflow-hidden shadow-2xl border-neutral-hard">
+                <div class="glass-card py-12 pr-12 pl-6 sm:pl-8 rounded-[4rem] relative overflow-hidden shadow-2xl border-neutral-hard reveal reveal-delay-2">
                     
                     <!-- NOVO CABEÇALHO DOS 3 PILARES -->
                     <div class="mb-12 border-b border-white/5 pb-10">
@@ -419,13 +446,13 @@
 
     <!-- Diferenciais -->
     <section class="py-40 px-4 max-w-7xl mx-auto bg-[var(--color-base)]">
-        <div class="text-center mb-24">
+        <div class="text-center mb-24 reveal">
             <h2 class="text-[var(--color-accent)] text-2xl lg:text-4xl font-black tracking-widest opacity-60 uppercase">O Padrão DxD</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             
             <!-- 1 - Contato Direto -->
-            <div class="glass-card p-10 rounded-[3.5rem] text-left border-t-2 border-[var(--color-accent)]">
+            <div class="glass-card p-10 rounded-[3.5rem] text-left border-t-2 border-[var(--color-accent)] reveal">
                 <div class="w-16 h-16 bg-[var(--color-base)] rounded-2xl flex items-center justify-center mb-10 border border-white/5">
                     <svg class="w-8 h-8 text-[var(--color-accent)]" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.631 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                 </div>
@@ -434,7 +461,7 @@
             </div>
 
             <!-- 2 - Moldado à realidade -->
-            <div class="glass-card p-10 rounded-[3.5rem] text-left border-t-2 border-[var(--color-accent)]">
+            <div class="glass-card p-10 rounded-[3.5rem] text-left border-t-2 border-[var(--color-accent)] reveal reveal-delay-1">
                 <div class="w-16 h-16 bg-[var(--color-base)] rounded-2xl flex items-center justify-center mb-10 border border-white/5">
                     <svg class="w-8 h-8 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
                 </div>
@@ -443,7 +470,7 @@
             </div>
 
             <!-- 3 - Evolução Contínua -->
-            <div class="glass-card p-10 rounded-[3.5rem] text-left border-t-2 border-[var(--color-accent)]">
+            <div class="glass-card p-10 rounded-[3.5rem] text-left border-t-2 border-[var(--color-accent)] reveal reveal-delay-2">
                 <div class="w-16 h-16 bg-[var(--color-base)] rounded-2xl flex items-center justify-center mb-10 border border-white/5">
                     <svg class="w-8 h-8 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
                 </div>
@@ -452,7 +479,7 @@
             </div>
 
             <!-- 4 - Suporte Semanal -->
-            <div class="glass-card p-10 rounded-[3.5rem] text-left border-t-2 border-[var(--color-accent)]">
+            <div class="glass-card p-10 rounded-[3.5rem] text-left border-t-2 border-[var(--color-accent)] reveal">
                 <div class="w-16 h-16 bg-[var(--color-base)] rounded-2xl flex items-center justify-center mb-10 border border-white/5">
                     <svg class="w-8 h-8 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
                 </div>
@@ -461,7 +488,7 @@
             </div>
 
             <!-- 5 - 100% Individual -->
-            <div class="glass-card p-10 rounded-[3.5rem] text-left border-t-2 border-[var(--color-accent)]">
+            <div class="glass-card p-10 rounded-[3.5rem] text-left border-t-2 border-[var(--color-accent)] reveal reveal-delay-1">
                 <div class="w-16 h-16 bg-[var(--color-base)] rounded-2xl flex items-center justify-center mb-10 border border-white/5">
                     <svg class="w-8 h-8 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
                 </div>
@@ -470,7 +497,7 @@
             </div>
 
             <!-- 6 - Liberdade na Dieta -->
-            <div class="glass-card p-10 rounded-[3.5rem] text-left border-t-2 border-[var(--color-accent)]">
+            <div class="glass-card p-10 rounded-[3.5rem] text-left border-t-2 border-[var(--color-accent)] reveal reveal-delay-2">
                 <div class="w-16 h-16 bg-[var(--color-base)] rounded-2xl flex items-center justify-center mb-10 border border-white/5">
                     <svg class="w-8 h-8 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
                 </div>
@@ -480,7 +507,7 @@
 
             <!-- 7 - Protocolo de Treino Ajustado ao seu Nível -->
             <!-- A classe lg:col-start-2 força este último card a ficar perfeitamente centralizado na grade no Desktop -->
-            <div class="glass-card p-10 rounded-[3.5rem] text-left border-t-2 border-[var(--color-accent)] lg:col-start-2">
+            <div class="glass-card p-10 rounded-[3.5rem] text-left border-t-2 border-[var(--color-accent)] lg:col-start-2 reveal">
                 <div class="w-16 h-16 bg-[var(--color-base)] rounded-2xl flex items-center justify-center mb-10 border border-white/5">
                     <svg class="w-8 h-8 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
                 </div>
@@ -493,14 +520,14 @@
 
     <!-- SECTION: QUEM SOMOS (Especialistas do Método) -->
     <section id="quem-somos" class="py-32 px-4 max-w-6xl mx-auto bg-[var(--color-base)]">
-        <div class="text-center mb-24">
+        <div class="text-center mb-24 reveal">
             <h2 class="text-[var(--color-accent)] text-2xl lg:text-4xl font-black tracking-widest opacity-60 uppercase">Os responsáveis pela sua transformação</h2>
         </div>
         
         <div class="space-y-12">
             
             <!-- TREINADOR -->
-            <div class="glass-card p-8 lg:p-12 rounded-[3.5rem] border-t-2 border-[var(--color-neutral-dark)] flex flex-col md:flex-row items-center gap-8 lg:gap-10 group transition-all duration-500 hover:border-[var(--color-accent)]">
+            <div class="glass-card p-8 lg:p-12 rounded-[3.5rem] border-t-2 border-[var(--color-neutral-dark)] flex flex-col md:flex-row items-center gap-8 lg:gap-10 group transition-all duration-500 hover:border-[var(--color-accent)] reveal">
                 <!-- Coluna Esquerda: Imagem -->
                 <div class="w-full md:w-auto flex justify-center shrink-0">
                     <div class="relative w-56 h-56 lg:w-80 lg:h-80 flex items-center justify-center">
@@ -522,7 +549,7 @@
             </div>
 
             <!-- NUTRICIONISTA -->
-            <div class="glass-card p-8 lg:p-12 rounded-[3.5rem] border-t-2 border-[var(--color-neutral-dark)] flex flex-col md:flex-row items-center gap-8 lg:gap-10 group transition-all duration-500 hover:border-[var(--color-accent)]">
+            <div class="glass-card p-8 lg:p-12 rounded-[3.5rem] border-t-2 border-[var(--color-neutral-dark)] flex flex-col md:flex-row items-center gap-8 lg:gap-10 group transition-all duration-500 hover:border-[var(--color-accent)] reveal">
                 <!-- Coluna Esquerda: Imagem -->
                 <div class="w-full md:w-auto flex justify-center shrink-0">
                     <div class="relative w-56 h-56 lg:w-80 lg:h-80 flex items-center justify-center">
@@ -547,23 +574,25 @@
     <!-- Planos -->
     <section id="planos" class="py-32 px-4 bg-[var(--color-section)] border-t border-neutral-hard">
         <div class="max-w-6xl mx-auto text-center">
-            <h2 class="text-[var(--color-beige)] text-4xl lg:text-6xl font-black mb-8 tracking-tight">Escolha como você quer evoluir</h2>
-            <p class="text-lg text-[var(--color-silver)] max-w-2xl mx-auto mb-20 font-light italic">Você escolhe o período, nós cuidamos da sua evolução.</p>
+            <div class="reveal">
+                <h2 class="text-[var(--color-beige)] text-4xl lg:text-6xl font-black mb-8 tracking-tight">Escolha como você quer evoluir</h2>
+                <p class="text-lg text-[var(--color-silver)] max-w-2xl mx-auto mb-20 font-light italic">Você escolhe o período, nós cuidamos da sua evolução.</p>
+            </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mb-16">
                 
                 <!-- Mensal -->
-                <div class="glass-card p-8 rounded-3xl flex flex-col text-left h-full">
+                <div class="glass-card p-8 rounded-3xl flex flex-col text-left h-full reveal">
                     <div class="mb-8">
                         <h3 class="text-xl font-bold text-[var(--color-beige)] uppercase italic tracking-wide mb-1">Mensal</h3>
                         <p class="text-[var(--color-silver)] text-xs">O primeiro passo</p>
                     </div>
                     <div class="mb-8 flex items-end gap-2">
-                        <span class="text-4xl font-black text-[var(--color-beige)] leading-none">R$ 499</span>
+                        <span class="text-4xl font-black text-[var(--color-beige)] leading-none">R$ 497</span>
                         <span class="text-[var(--color-silver)] text-sm mb-1">/mês</span>
                     </div>
                     <ul class="space-y-4 mb-10 text-sm text-[var(--color-silver)] font-light">
-                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Consulta via chamada e prescrição de dieta individualizada junto com o paciente;</li>
+                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Consulta via chamada e prescrição de dieta individualizada junto com o nutricionista;</li>
                         <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Treino 100% personalizado em app premium;</li>
                         <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Suporte diário via WhatsApp para todas as suas dúvidas.</li>
                     </ul>
@@ -573,8 +602,8 @@
                     </a>
                 </div>
 
-                <!-- 16S - TECH GREEN GLOW / FIRE -->
-                <div class="glass-card p-8 lg:p-10 rounded-[2.5rem] border-2 border-[var(--color-accent)] relative text-left flex flex-col h-full lg:-translate-y-6 z-10 shadow-[0_0_40px_rgba(10,113,78,0.15)]" style="background: linear-gradient(to bottom, rgba(var(--rgb-accent), 0.08), transparent);">
+                <!-- 24S - TECH GREEN GLOW / FIRE (DESTAQUE MÁXIMO) -->
+                <div class="glass-card p-8 lg:p-10 rounded-[2.5rem] border-2 border-[var(--color-accent)] relative text-left flex flex-col h-full lg:-translate-y-6 z-10 shadow-[0_0_40px_rgba(10,113,78,0.15)] reveal reveal-delay-1" style="background: linear-gradient(to bottom, rgba(var(--rgb-accent), 0.08), transparent);">
                     
                     <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[var(--color-accent)] text-[var(--color-pure-black)] px-6 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest whitespace-nowrap">
                         Mais escolhido
@@ -586,20 +615,20 @@
                             <!-- O texto será injetado dinamicamente aqui -->
                             ⚡ Calculando vagas...
                         </div>
-                        <h3 class="text-3xl font-black text-[var(--color-beige)] uppercase italic tracking-tighter mb-1">Programa 16S</h3>
-                        <p class="text-[var(--color-accent)] text-xs font-bold uppercase tracking-widest">Acompanhamento Premium</p>
+                        <h3 class="text-3xl font-black text-[var(--color-beige)] uppercase italic tracking-tighter mb-1">Programa 24S</h3>
+                        <p class="text-[var(--color-accent)] text-xs font-bold uppercase tracking-widest">Acompanhamento Premium (Semestral)</p>
                     </div>
                     
                     <div class="mb-8">
-                        <p class="text-[var(--color-silver)] line-through text-xs font-medium uppercase mb-1">De R$ 1.996,00</p>
+                        <p class="text-[var(--color-silver)] line-through text-xs font-medium uppercase mb-1">De R$ 2.982,00</p>
                         <div class="flex items-baseline gap-2 pt-2">
-                            <span class="text-2xl font-bold text-[var(--color-silver)]">4x</span>
+                            <span class="text-2xl font-bold text-[var(--color-silver)]">6x</span>
                             <span class="text-5xl font-black energy-ray-text tracking-tighter leading-none">R$ 347</span>
                         </div>
                     </div>
                     
                     <ul class="space-y-4 mb-10 text-sm leading-relaxed text-[var(--color-silver)] font-light">
-                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] font-black mt-0.5">✔</span> <span><strong class="text-[var(--color-beige)] font-semibold">Consulta e prescrição personalizada</strong> da dieta junto com o Nutricionista;</span></li>
+                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] font-black mt-0.5">✔</span> <span><strong class="text-[var(--color-beige)] font-semibold">Consulta e prescrição personalizada</strong> da dieta junto com o nutricionista;</span></li>
                         <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] font-black mt-0.5">✔</span> <span><strong class="text-[var(--color-beige)] font-semibold">Treino e cardios</strong> 100% personalizados em app premium;</span></li>
                         <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] font-black mt-0.5">✔</span> <span><strong class="text-[var(--color-beige)] font-semibold">Suporte diário</strong> prioritário e direto conosco;</span></li>
                         <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] font-black mt-0.5">✔</span> <span><strong class="text-[var(--color-beige)] font-semibold">Avaliações semanais</strong> para garantir seu progresso;</span></li>
@@ -607,46 +636,57 @@
                     </ul>
                     
                     <!-- Botão dinâmico com IDs para receber injeção do script -->
-                    <a id="cta-16s" href="#" target="_blank" class="mt-auto w-full py-4 text-center rounded-xl font-bold btn-accent transition-all text-sm uppercase tracking-widest" style="box-shadow: 0 0 30px rgba(var(--rgb-accent), 0.2);">
-                        <span id="texto-cta-16s" class="btn-energy-ray-text">Carregando...</span>
+                    <a id="cta-24s" href="#" target="_blank" class="mt-auto w-full py-4 text-center rounded-xl font-bold btn-accent transition-all text-sm uppercase tracking-widest" style="box-shadow: 0 0 30px rgba(var(--rgb-accent), 0.2);">
+                        <span id="texto-cta-24s" class="btn-energy-ray-text">Carregando...</span>
                     </a>
                 </div>
 
-                <!-- Semestral -->
-                <div class="glass-card p-8 rounded-3xl flex flex-col text-left h-full opacity-90">
+                <!-- Trimestral -->
+                <div class="glass-card p-8 rounded-3xl flex flex-col text-left h-full opacity-90 reveal reveal-delay-2">
                     <div class="mb-8">
-                        <h3 class="text-xl font-bold text-[var(--color-beige)] uppercase italic tracking-wide mb-1">Semestral</h3>
-                        <p class="text-[var(--color-silver)] text-xs">A mudança de vida</p>
+                        <h3 class="text-xl font-bold text-[var(--color-beige)] uppercase italic tracking-wide mb-1">Trimestral</h3>
+                        <p class="text-[var(--color-silver)] text-xs">Transformação Sólida</p>
                     </div>
                     <div class="mb-8 flex items-end gap-2">
                         <div class="flex flex-col">
-                            <p class="text-[var(--color-silver)] line-through text-[10px] font-medium uppercase mb-1">De R$ 2.994,00</p>
+                            <p class="text-[var(--color-silver)] line-through text-[10px] font-medium uppercase mb-1">De R$ 1.491,00</p>
                             <div class="flex items-baseline gap-2">
-                                <span class="text-2xl font-bold text-[var(--color-silver)]">6x</span>
-                                <span class="text-4xl font-black text-[var(--color-beige)] leading-none">R$ 329</span>
+                                <span class="text-2xl font-bold text-[var(--color-silver)]">3x</span>
+                                <span class="text-4xl font-black text-[var(--color-beige)] leading-none">R$ 397</span>
                             </div>
                         </div>
                     </div>
                     <ul class="space-y-4 mb-10 text-sm text-[var(--color-silver)] font-light">
-                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Todos os benefícios do plano anterior;</li>
-                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Maior tempo para construir um físico sólido;</li>
-                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Acompanhamento constante conosco.</li>
+                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Todos os benefícios do plano Mensal;</li>
+                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Foco na adaptação e ganho de força;</li>
+                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Ideal para iniciar o comprometimento.</li>
                     </ul>
                     <!-- Link Genérico para os outros planos -->
-                    <a href="https://wa.me/5592985803833?text=Olá!%20Vim%20pelo%20site%20e%20tenho%20interesse%20no%20Plano%20Semestral.%20Como%20podemos%20prosseguir?" target="_blank" class="mt-auto w-full py-4 text-center rounded-xl font-bold bg-[var(--color-base)] hover:bg-white/10 text-[var(--color-beige)] border border-white/10 transition-all text-sm uppercase tracking-widest">
+                    <a href="https://wa.me/5592985803833?text=Olá!%20Vim%20pelo%20site%20e%20tenho%20interesse%20no%20Plano%20Trimestral.%20Como%20podemos%20prosseguir?" target="_blank" class="mt-auto w-full py-4 text-center rounded-xl font-bold bg-[var(--color-base)] hover:bg-white/10 text-[var(--color-beige)] border border-white/10 transition-all text-sm uppercase tracking-widest">
                         Quero resultados
                     </a>
                 </div>
                 
+            </div>
+
+            <!-- BLOCO DE GARANTIA: REVERSÃO DE RISCO ABSOLUTA -->
+            <div class="max-w-3xl mx-auto glass-card border border-[var(--color-accent)] rounded-3xl p-8 lg:p-10 flex flex-col sm:flex-row items-center gap-8 text-left reveal">
+                <div class="w-20 h-20 shrink-0 bg-[var(--color-base)] border border-white/10 rounded-full flex items-center justify-center">
+                    <svg class="w-10 h-10 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                </div>
+                <div>
+                    <h3 class="text-[var(--color-beige)] font-black text-2xl mb-2 tracking-tight">Risco Zero: 7 Dias de Garantia</h3>
+                    <p class="text-[var(--color-silver)] font-light text-sm leading-relaxed">Nosso compromisso é com o seu resultado clínico e estético. Se, após passarmos pela avaliação e você receber o seu protocolo completo, você achar que nossa metodologia não faz sentido para a sua rotina, nós devolveremos 100% do seu investimento. Sem burocracia.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ (Dúvidas Frequentes) -->
     <section class="py-32 px-4 max-w-4xl mx-auto bg-[var(--color-base)]">
-        <h2 class="text-center font-black text-3xl lg:text-5xl text-[var(--color-beige)] mb-20 tracking-tight">Dúvidas Frequentes</h2>
+        <h2 class="text-center font-black text-3xl lg:text-5xl text-[var(--color-beige)] mb-20 tracking-tight reveal">Dúvidas Frequentes</h2>
         
-        <div class="space-y-6 text-left">
+        <div class="space-y-6 text-left reveal">
             <!-- Pergunta 1 -->
             <details class="group glass-card rounded-3xl overflow-hidden border border-neutral-hard">
                 <summary class="flex justify-between items-center p-8 lg:p-10 cursor-pointer hover:bg-white/[0.02] transition-colors outline-none">
@@ -785,7 +825,7 @@
 
     <!-- SECTION: AINDA COM DÚVIDAS (Rede de Segurança - Suporte Direto) -->
     <section class="py-24 px-4 bg-[var(--color-section)] border-t border-white/5">
-        <div class="max-w-3xl mx-auto text-center">
+        <div class="max-w-3xl mx-auto text-center reveal">
             <h2 class="text-3xl lg:text-5xl font-black text-[var(--color-beige)] mb-8 tracking-tight">Ainda tem alguma dúvida?</h2>
             
             <div class="text-[var(--color-silver)] text-lg lg:text-xl leading-relaxed font-light space-y-4 mb-12">
@@ -805,7 +845,7 @@
 
     <!-- Rodapé -->
     <footer class="py-20 px-4 text-center border-t border-neutral-hard" style="background-color: var(--color-pure-black);">
-        <div class="max-w-4xl mx-auto flex flex-col items-center">
+        <div class="max-w-4xl mx-auto flex flex-col items-center reveal">
             <div class="mb-12 flex flex-col items-center opacity-40 grayscale brightness-150">
                 <img src="logoDxD.svg" alt="DxD Legacy Footer" loading="lazy" class="h-28 w-auto mb-6 locked-img">
                 <span class="font-squartiqa text-[var(--color-beige)] text-sm tracking-[0.6em]">Consultoria Esportiva</span>
@@ -814,7 +854,7 @@
             <!-- SEÇÃO DE RESPONSABILIDADE TÉCNICA -->
             <div class="mb-8 opacity-60 text-[10px] uppercase tracking-wider leading-relaxed text-[var(--color-beige)]">
                 <p class="mb-1"><span class="font-bold">Responsável Técnico (Treinamento):</span> Peterson de Oliveira – CREF 173274-G/SP</p>
-                <p><span class="font-bold">Nutricionista:</span> Douglas dos Santos Picetti – CRN10 12996-P</p>
+                <p><span class="font-bold">Responsável Técnico (Nutrição):</span> Douglas dos Santos Picetti – CRN10 12996-P</p>
             </div>
 
             <div class="opacity-30">
@@ -838,12 +878,30 @@
          * - Se = 0: Escreve "Esgotado", muda a cor do botão e leva pra Lista de Espera.
          * 2. Insira seus links reais abaixo.
          */
-        const VAGAS_DISPONIVEIS = 4; // Teste colocar 0 para ver a mágica da Lista de Espera acontecer
+        const VAGAS_DISPONIVEIS = 2; // Teste colocar 0 para ver a mágica da Lista de Espera acontecer
         
         const MEU_WHATSAPP = "5592985803833";
-        const MSG_16S = "Olá! Vim pelo site e tenho interesse no Plano 16S. Como podemos prosseguir?";
-        const LINK_WHATSAPP = `https://wa.me/${MEU_WHATSAPP}?text=${encodeURIComponent(MSG_16S)}`;
+        const MSG_24S = "Olá! Vim pelo site e tenho interesse no Programa 24S. Como podemos prosseguir?";
+        const LINK_WHATSAPP = `https://wa.me/${MEU_WHATSAPP}?text=${encodeURIComponent(MSG_24S)}`;
         const LINK_LISTA_ESPERA = "https://seu-formulario-aqui.typeform.com"; // Ex: link do Typeform ou Tally.so
+
+        // ==========================================
+        // MOTOR DE NEURODESIGN (SCROLL ANIMATIONS)
+        // ==========================================
+        function revealElements() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100; // Ponto de ativação (100px antes de aparecer na tela)
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", revealElements);
+        revealElements(); // Dispara uma vez no load para os elementos do topo
 
         document.addEventListener("DOMContentLoaded", () => {
             // Obter o mês atual dinamicamente
@@ -853,13 +911,13 @@
 
             // Selecionar os elementos que vão sofrer mutação
             const badgeVagas = document.getElementById('badge-vagas');
-            const cta16s = document.getElementById('cta-16s');
-            const textoCta16s = document.getElementById('texto-cta-16s');
+            const cta24s = document.getElementById('cta-24s');
+            const textoCta24s = document.getElementById('texto-cta-24s');
             
             // ==========================================
             // LÓGICA DO FUNIL DE LISTA DE ESPERA
             // ==========================================
-            if (badgeVagas && cta16s && textoCta16s) {
+            if (badgeVagas && cta24s && textoCta24s) {
                 
                 if (VAGAS_DISPONIVEIS <= 0) {
                     // AÇÃO QUANDO NÃO HÁ VAGAS (FUNIL DE DEMANDA REPRIMIDA)
@@ -873,14 +931,14 @@
                     badgeVagas.style.animation = 'none'; 
                     
                     // 2. Transforma o botão verde de venda em um botão de Lista de Espera
-                    cta16s.href = LINK_LISTA_ESPERA;
-                    cta16s.classList.remove('btn-accent');
-                    cta16s.classList.add('btn-waitlist');
-                    cta16s.style.boxShadow = 'none';
+                    cta24s.href = LINK_LISTA_ESPERA;
+                    cta24s.classList.remove('btn-accent');
+                    cta24s.classList.add('btn-waitlist');
+                    cta24s.style.boxShadow = 'none';
                     
                     // 3. Atualiza o texto interno com raio prateado/sóbrio
-                    textoCta16s.innerHTML = "Entrar na Lista de Espera";
-                    textoCta16s.className = "btn-energy-ray-waitlist";
+                    textoCta24s.innerHTML = "Entrar na Lista de Espera";
+                    textoCta24s.className = "btn-energy-ray-waitlist";
 
                 } else {
                     // AÇÃO QUANDO HÁ VAGAS (FUNIL DE VENDAS ATIVO VIA WHATSAPP)
@@ -890,8 +948,8 @@
                     badgeVagas.innerHTML = `⚡ Restam ${VAGAS_DISPONIVEIS} ${textoVaga} para ${mesAtual}`;
                     
                     // 2. Direciona o botão para o WhatsApp de fechamento
-                    cta16s.href = LINK_WHATSAPP;
-                    textoCta16s.innerHTML = "Garantir Minha Vaga";
+                    cta24s.href = LINK_WHATSAPP;
+                    textoCta24s.innerHTML = "Garantir Minha Vaga";
                 }
             }
         });
