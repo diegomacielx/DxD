@@ -52,7 +52,7 @@
         }
 
         /* =========================================
-           MELHORIA 1: TEXTURA DE NOISE (GRAIN)
+           MELHORIA: TEXTURA DE NOISE (GRAIN)
            ========================================= */
         body::before {
             content: "";
@@ -63,53 +63,6 @@
             pointer-events: none;
             z-index: 1;
             mix-blend-mode: overlay;
-        }
-
-        /* =========================================
-           MELHORIA 2: CURSOR CUSTOMIZADO
-           ========================================= */
-        @media (hover: hover) and (pointer: fine) {
-            body, a, button, summary, details { cursor: none !important; }
-            
-            .custom-cursor {
-                width: 8px; height: 8px;
-                background: var(--color-accent-bright);
-                border-radius: 50%;
-                position: fixed;
-                top: 0; left: 0;
-                pointer-events: none;
-                z-index: 9999;
-                transition: transform 0.15s ease, opacity 0.3s ease;
-                mix-blend-mode: screen;
-            }
-            .custom-cursor-follower {
-                width: 40px; height: 40px;
-                border: 1px solid rgba(16, 158, 109, 0.4);
-                border-radius: 50%;
-                position: fixed;
-                top: 0; left: 0;
-                pointer-events: none;
-                z-index: 9998;
-                transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-                            height 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-                            background 0.3s ease, 
-                            border-color 0.3s ease,
-                            opacity 0.3s ease;
-                mix-blend-mode: normal;
-            }
-            .custom-cursor-follower.hover {
-                width: 70px;
-                height: 70px;
-                background: rgba(16, 158, 109, 0.12);
-                border-color: var(--color-accent-bright);
-            }
-            body:not(:hover) .custom-cursor,
-            body:not(:hover) .custom-cursor-follower {
-                opacity: 0;
-            }
-        }
-        @media (hover: none), (pointer: coarse) {
-            .custom-cursor, .custom-cursor-follower { display: none !important; }
         }
 
         .font-squartiqa {
@@ -378,7 +331,7 @@
         }
 
         /* =========================================
-           MELHORIA 3: STICKY CTA FLUTUANTE
+           MELHORIA: STICKY CTA FLUTUANTE
            ========================================= */
         .sticky-cta {
             position: fixed;
@@ -429,7 +382,7 @@
         }
 
         /* =========================================
-           MELHORIA 4: PARALLAX FUNDADORES (Hero)
+           MELHORIA: PARALLAX FUNDADORES (Hero)
            ========================================= */
         #duplinha-parallax {
             will-change: transform;
@@ -438,10 +391,6 @@
     </style>
 </head>
 <body class="antialiased overflow-x-hidden bg-[var(--color-matte)]">
-
-    <!-- CURSOR CUSTOMIZADO -->
-    <div class="custom-cursor"></div>
-    <div class="custom-cursor-follower"></div>
 
     <!-- Hero Section -->
     <header class="relative pt-32 pb-40 px-4 text-center border-b border-neutral-hard" style="background: radial-gradient(circle at center, rgba(var(--rgb-accent), 0.12) 0%, transparent 70%);">
@@ -678,7 +627,7 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mb-16">
                 
-                <!-- MENSAL (Texto Original Restaurado) -->
+                <!-- MENSAL -->
                 <div class="glass-card p-8 rounded-3xl flex flex-col text-left h-full reveal">
                     <div class="mb-8">
                         <h3 class="text-xl font-bold text-[var(--color-beige)] uppercase italic tracking-wide mb-1">Mensal</h3>
@@ -698,7 +647,7 @@
                     </a>
                 </div>
 
-                <!-- 24S - SEMESTRAL (Original Restaurado) -->
+                <!-- 24S - SEMESTRAL -->
                 <div class="glass-card p-8 lg:p-10 rounded-[2.5rem] border-2 border-[var(--color-accent)] relative text-left flex flex-col h-full lg:-translate-y-6 z-10 shadow-[0_0_40px_rgba(10,113,78,0.15)] reveal reveal-delay-1" style="background: linear-gradient(to bottom, rgba(var(--rgb-accent), 0.08), transparent);">
                     
                     <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[var(--color-accent)] text-[var(--color-pure-black)] px-6 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest whitespace-nowrap">
@@ -734,7 +683,7 @@
                     </a>
                 </div>
 
-                <!-- TRIMESTRAL (Texto Original, Alinhamento Perfeito na Mesma Linha) -->
+                <!-- TRIMESTRAL (Bullets atualizados conforme solicitado) -->
                 <div class="glass-card p-8 rounded-3xl flex flex-col text-left h-full reveal reveal-delay-2">
                     <div class="mb-8">
                         <h3 class="text-xl font-bold text-[var(--color-beige)] uppercase italic tracking-wide mb-1">Trimestral</h3>
@@ -748,9 +697,9 @@
                         </div>
                     </div>
                     <ul class="space-y-4 mb-10 text-sm text-[var(--color-silver)] font-light">
-                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Acesso completo à prescrição individualizada de <strong>Treino e Nutrição</strong>;</li>
-                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> <strong>Periodização de 12 semanas:</strong> o tempo exato exigido pela literatura para mudanças estéticas visíveis;</li>
-                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> <strong>Suporte e ajustes contínuos</strong> no WhatsApp para evitar qualquer estagnação ou platô no seu físico.</li>
+                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Consulta via chamada e prescrição de dieta individualizada junto com o nutricionista;</li>
+                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Treinos e cardios 100% personalizados em app premium;</li>
+                        <li class="flex items-start gap-3"><span class="text-[var(--color-accent)] mt-0.5">•</span> Avaliações semanais para garantir seu progresso;</li>
                     </ul>
                     <a href="https://wa.me/5548992091379?text=Olá!%20Vim%20pelo%20site%20e%20tenho%20interesse%20no%20Plano%20Trimestral.%20Como%20podemos%20prosseguir?" target="_blank" class="mt-auto w-full py-4 text-center rounded-xl font-bold bg-[var(--color-base)] hover:bg-white/10 text-[var(--color-beige)] border border-white/10 transition-all text-sm uppercase tracking-widest">
                         Quero resultados
@@ -850,7 +799,7 @@
                     <svg class="w-6 h-6 text-[var(--color-beige)] transition-transform duration-500 group-open:rotate-180 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </summary>
                 <div class="px-8 lg:px-10 pb-10 text-[var(--color-silver)] leading-relaxed font-light text-base lg:text-lg space-y-4">
-                    <p>De forma alguma! Não trabalhamos com terrorismo alimentar. A ciência mostra que a restrição severa e a exclusão de alimentos que você gosta são as principais causas da desistência e do famoso "efeito sanfona".</p>
+                    <p>De forma algum! Não trabalhamos com terrorismo alimentar. A ciência mostra que a restrição severa e a exclusão de alimentos que você gosta são as principais causas da desistência e do famoso "efeito sanfona".</p>
                     <p>O seu protocolo nutricional será montado junto com você, para garantir que consiga seguir e alcançar o resultado estético que deseja. Ele terá flexibilidade suficiente para incluir o que lhe dá prazer. Nós adaptamos a dieta à sua vida social, e não o contrário, mostrando como reduzir danos e aproveitar o que gosta sem impactar sua evolução.</p>
                 </div>
             </details>
@@ -1014,56 +963,24 @@
         });
 
         // ==========================================
-        // CURSOR CUSTOMIZADO
-        // ==========================================
-        (function() {
-            const isDesktop = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-            if (!isDesktop) return;
-
-            const cursor = document.querySelector('.custom-cursor');
-            const follower = document.querySelector('.custom-cursor-follower');
-            if (!cursor || !follower) return;
-
-            let mouseX = 0, mouseY = 0;
-            let followerX = 0, followerY = 0;
-
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                cursor.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px)`;
-            });
-
-            function animateFollower() {
-                followerX += (mouseX - followerX) * 0.15;
-                followerY += (mouseY - followerY) * 0.15;
-                const followerSize = follower.classList.contains('hover') ? 70 : 40;
-                follower.style.transform = `translate(${followerX - followerSize/2}px, ${followerY - followerSize/2}px)`;
-                requestAnimationFrame(animateFollower);
-            }
-            animateFollower();
-
-            document.querySelectorAll('a, button, summary, details, input, textarea, select, [role="button"]').forEach(el => {
-                el.addEventListener('mouseenter', () => follower.classList.add('hover'));
-                el.addEventListener('mouseleave', () => follower.classList.remove('hover'));
-            });
-        })();
-
-        // ==========================================
-        // PARALLAX SUAVE (Fundadores no Hero)
+        // PARALLAX SUAVE COM LIMITE DE SEGURANÇA (Fundadores no Hero)
+        // A imagem agora NUNCA ultrapassa 40px de deslocamento,
+        // impedindo matematicamente que ela atropela o badge premium.
         // ==========================================
         (function() {
             const duplinha = document.getElementById('duplinha-parallax');
             if (!duplinha) return;
+            
+            const MAX_TRANSLATE = 40; // Limite rígido em pixels
             
             let ticking = false;
             window.addEventListener('scroll', () => {
                 if (!ticking) {
                     window.requestAnimationFrame(() => {
                         const scrolled = window.pageYOffset;
-                        const maxScroll = window.innerHeight;
-                        if (scrolled < maxScroll) {
-                            duplinha.style.transform = `translateY(${scrolled * 0.15}px) translateZ(0)`;
-                        }
+                        // Calcula o deslocamento desejado, mas trava no teto máximo
+                        const translate = Math.min(scrolled * 0.15, MAX_TRANSLATE);
+                        duplinha.style.transform = `translateY(${translate}px) translateZ(0)`;
                         ticking = false;
                     });
                     ticking = true;
@@ -1072,7 +989,7 @@
         })();
 
         // ==========================================
-        // STICKY CTA (Aparece após 50% do scroll)
+        // STICKY CTA (Aparece após 30% do scroll)
         // ==========================================
         (function() {
             const stickyCta = document.getElementById('sticky-cta');
